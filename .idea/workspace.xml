@@ -27,11 +27,10 @@
       <file leaf-file-name="monkeyTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/monkeyTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6666665" vertical-offset="1415" max-vertical-offset="1900">
-              <caret line="147" column="54" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
+            <state vertical-scroll-proportion="-7.6" vertical-offset="0" max-vertical-offset="2964">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="e#46#55#0" expanded="true" />
-                <element signature="e#1311#3634#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,21 +66,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenCpu.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MenCpu.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MenCpu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4058295" vertical-offset="0" max-vertical-offset="760">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="-4.4333334" vertical-offset="0" max-vertical-offset="722">
+              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matplotlibBase.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="matplotlibBase.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/matplotlibBase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2242">
-              <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state vertical-scroll-proportion="4.1857452" vertical-offset="0" max-vertical-offset="2242">
+              <caret line="102" column="66" selection-start-line="102" selection-start-column="66" selection-end-line="102" selection-end-column="66" />
               <folding>
                 <element signature="e#53#71#0" expanded="true" />
               </folding>
@@ -107,10 +106,10 @@
         <option value="$PROJECT_DIR$/BaseStrDate.py" />
         <option value="$PROJECT_DIR$/../Python34/Lib/_strptime.py" />
         <option value="$PROJECT_DIR$/monkeyConfig.py" />
-        <option value="$PROJECT_DIR$/monkeyTest.py" />
         <option value="$PROJECT_DIR$/monkey.ini" />
         <option value="$PROJECT_DIR$/matplotlibBase.py" />
         <option value="$PROJECT_DIR$/MenCpu.py" />
+        <option value="$PROJECT_DIR$/monkeyTest.py" />
       </list>
     </option>
   </component>
@@ -480,7 +479,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24597365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -489,7 +488,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20597485" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20597485" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -548,7 +547,6 @@
           <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -574,7 +572,6 @@
           <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -593,7 +590,6 @@
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -612,7 +608,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -631,7 +626,6 @@
           <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -650,7 +644,6 @@
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -669,7 +662,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -680,7 +672,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -880,27 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/monkeyTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6666665" vertical-offset="1415" max-vertical-offset="1900">
-          <caret line="147" column="54" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
-          <folding>
-            <element signature="e#46#55#0" expanded="true" />
-            <element signature="e#1311#3634#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/matplotlibBase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2242">
-          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="e#53#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/monkey.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.76" vertical-offset="0" max-vertical-offset="266">
@@ -919,9 +889,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MenCpu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4058295" vertical-offset="0" max-vertical-offset="760">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state vertical-scroll-proportion="-4.4333334" vertical-offset="0" max-vertical-offset="722">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/monkeyTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.6" vertical-offset="0" max-vertical-offset="2964">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/matplotlibBase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.1857452" vertical-offset="0" max-vertical-offset="2242">
+          <caret line="102" column="66" selection-start-line="102" selection-start-column="66" selection-end-line="102" selection-end-column="66" />
+          <folding>
+            <element signature="e#53#71#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

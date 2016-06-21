@@ -5,10 +5,8 @@ pkg_name = "com.dgm.user"
 cpu = []
 men = []
 def top_cpu(pkg_name):
-    print("------------------------")
     cmd = "adb shell dumpsys cpuinfo | grep " + pkg_name
     temp = []
-    # print(cmd)
     # cmd = "adb shell top -n %s -s cpu | grep %s$" %(str(times), pkg_name)
     top_info = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.readlines()
     for info in top_info:
