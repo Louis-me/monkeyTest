@@ -36,7 +36,8 @@ exceptions=['NullPointer','IllegalState','IllegalArgument','ArrayIndexOutOfBound
 ### java文件中是我写的空指针代码
 ### monkneytest.py入口 
 
-- 下次优化错误结果的展示，比如出现空指针，数组越界等问题，会用报表的形式统计，到底使用柱形图，还是html展示的方式？
+## 2016-9-3 用三层(DAL,BLL,MODEL)分层的方式重构整个代码
+
 
 
 

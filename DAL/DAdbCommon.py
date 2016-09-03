@@ -1,7 +1,9 @@
 # python module for interacting with adb
 import os
 
-
+'''
+基本的adb操作
+'''
 class AndroidDebugBridge(object):
     def call_adb(self, command):
         command_result = ''
@@ -69,11 +71,13 @@ class AndroidDebugBridge(object):
     # 根据包名得到进程id
     def get_app_pid(self, pkg_name):
         string = self.call_adb("shell ps | grep "+pkg_name)
-        print(string)
+        # print(string)
         if string == '':
             return "the process doesn't exist."
         result = string.split(" ")
-        print(result[4])
+        # print(result[4])
         return result[4]
+
+
 # reuslt = AndroidDebugBridge().attached_devices()
 # print(reuslt)

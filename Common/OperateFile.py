@@ -1,5 +1,5 @@
 __author__ = 'Administrator'
-import os, sys
+import os
 class base_file:
     #method(r,w,a)
     def __init__(self, file, method='w+'):
@@ -48,8 +48,8 @@ class base_file:
             print("删除文件成功")
         else:
             print("文件不存在")
-if __name__ == '__main__':
-    bf = base_file("text.xml")
-    if bf.check_file() == False:
-        bf.mkdir_file()
-    bf.write_txt("111")
+# if __name__ == '__main__':
+#     bf = base_file("text.xml")
+#     if bf.check_file() == False:
+#         bf.mkdir_file()
+#     bf.write_txt("111")
