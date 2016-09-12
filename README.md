@@ -46,7 +46,7 @@ exceptions=['NullPointer','IllegalState','IllegalArgument','ArrayIndexOutOfBound
 * 新增monkey做稳定性功能测试，测试报告：
 
 
-![monkey结果](img/monkey1.png  "monkey结果")
+![monkey结果](img/monkey2.png  "monkey结果")
 
 
 ![monkey日志](img/log.png  "monkey日志")
