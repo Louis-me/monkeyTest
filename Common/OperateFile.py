@@ -40,8 +40,10 @@ class base_file:
             f = open(self.file, self.method)
             f.close()
             print("创建文件成功")
+            return True
         else:
             print("文件已经存在")
+            return False
     def remove_file(self):
         if os.path.isfile(self.file):
             os.remove(self.file)

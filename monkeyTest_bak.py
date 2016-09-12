@@ -3,8 +3,6 @@ __author__ = 'shikun'
 import os
 import time
 import datetime as dt
-
-
 from BLL import BMatPlo
 from BLL import BAdbCommon
 from Common import OperateFile
@@ -12,150 +10,77 @@ from BLL import BMonkeyConfig
 from Model import MMonkeyConfig
 from Model import MMatplo
 from BLL import BMenCpu
-# CPU = [[],[]] # time,使用情况
-# MEN = [[],[]] #当前时间，和内存使用情况
+import re
+from Common import Globals as go
 
-# 得到手机信息
-# def getPhoneMsg(cmd_log):
-#     l_list = []
-#     f = open(cmd_log, "r")
-#     lines = f.readlines()
-#     for line in lines:
-#         line = line.split('=')
-#         #Android 系统，如anroid 4.0
-#         if (line[0] == 'ro.build.version.release'):
-#             l_list.append(line[1])
-#             #手机名字
-#         if (line[0]=='ro.product.model'):
-#             l_list.append(line[1])
-#             #手机品牌
-#         if (line[0]=='ro.product.brand'):
-#             l_list.append(line[1])
-#     f.close()
-#     return l_list
+
+def get_error(log):
+    with open(log, encoding="utf-8") as monkey_log:
+        lines = monkey_log.readlines()
+        for line in lines:
+            if re.findall(go.ANR, line):
+                print('\033[1;31;42m')
+                print("存在anr错误:", line)
+                go.I_ANR += 1
+            if re.findall(go.CRASH, line):
+                print('\033[1;31;42m')
+                print("存在crash错误:", line)
+                go.I_CRASH += 1
+            if re.findall(go.EXCEPTION, line):
+                print('\033[1;31;42m')
+                print("存在exception异常:", line)
+                go.I_EXCEPTION += 1
+
+
 
 #开始脚本测试
-def start_monkey(cmd, logdir, now1, logcatname):
+def start_monkey(cmd, logdir, now1, monkey_log):
+    # Monkey测试结果日志:monkey_log
+    os.popen(cmd )
     print(cmd)
-    os.popen(cmd)
-    cmd2 = "adb logcat -d >%s" % logcatname
-    os.popen(cmd2)
-    #print"导出traces文件"
-    tracesname = logdir + "\\" + now1 + r"traces.log"
-    cmd3 = "adb shell cat /data/anr/traces.txt>%s" % tracesname
-    os.popen(cmd3)
 
-#获取error,
-# logcatname,mote_pah(服务器存储地址)t
-# log_list:version,model,brand
-######################
-# def geterror(log_list, logcatname, remote_path, now1):
-#     # 这里的错误异常可以写到配置文件中
-#     NullPointer = "java.lang.NullPointerException"
-#     NullPointer_count = 0
-#     IllegalState = "java.lang.IllegalStateException"
-#     IllegalState_count = 0
-#     IllegalArgument = "java.lang.IllegalArgumentException"
-#     IllegalArgument_count = 0
-#     ArrayIndexOutOfBounds = "java.lang.ArrayIndexOutOfBoundsException"
-#     ArrayIndexOutOfBounds_count = 0
-#     RuntimeException = "java.lang.RuntimeException"
-#     RuntimeException_count = 0
-#     SecurityException = "java.lang.SecurityException"
-#     SecurityException_count = 0
-#     f = open(logcatname, "r")
-#     lines = f.readlines()
-#     errfile = "%s\error.log" % remote_path
-#     if os.path.exists(errfile):
-#         os.remove(errfile)
-#     fr = open(errfile, "a")
-#     fr.write(log_list[0])
-#     fr.write("\n")
-#     fr.write(log_list[1])
-#     fr.write("\n")
-#     fr.write(log_list[2])
-#     fr.write("\n")
-#     fr.write(now1)
-#     fr.write("\n")
-#     count = 0
-#     for line in lines:
-#         if re.findall(NullPointer, line):
-#             NullPointer_count += 1
-#         if re.findall(IllegalState, line):
-#             IllegalState_count += 1
-#         if re.findall(IllegalArgument, line):
-#             IllegalArgument_count += 1
-#         if re.findall(ArrayIndexOutOfBounds, line):
-#             ArrayIndexOutOfBounds_count += 1
-#         if re.findall(RuntimeException, line):
-#             RuntimeException_count += 1
-#         if re.findall(SecurityException, line):
-#             SecurityException_count += 1
-#
-#          # 这里的日志文件放到服务器去
-#         if re.findall(NullPointer, line) or re.findall(IllegalState, line) or re.findall(IllegalArgument, line) or \
-#                 re.findall(ArrayIndexOutOfBounds, line) or re.findall(RuntimeException, line) or re.findall(SecurityException, line):
-#             count += 1
-#             a = lines.index(line)
-#             for var in range(a, a+22):
-#                 # 这个22是表示从找到某个出错的信息开始，打印log22行，这个数据你可以根据自己的需要改。基本上22行能把所有的出错有关的log展现出来了。
-#                 print(lines[var])
-#                 fr.write(lines[var])
-#             fr.write("\n")
-#     f.close()
-#     fr.close()
-#      # #柱形
-#     if count > 0:
-#         list_arg = [[NullPointer_count, IllegalState_count, IllegalArgument_count, ArrayIndexOutOfBounds_count],
-#                     ['空指针', '类型转换', '参数异常', '数组越界']]
-#         # matplotlibBase.mat_bar(list_arg)
-#         pass
-#     else:
-#         print(u"没有任何异常")
+    # Monkey时手机日志
+    logcatname = logdir+"\\"+now1+r"logcat.log"
+    cmd2 = "adb logcat -d >%s" %(logcatname)
+    os.popen(cmd2)
 
 if __name__ == '__main__':
     ini_file = 'monkey.ini'
     ba = BAdbCommon
     if OperateFile.base_file(ini_file, "r").check_file():
         if ba.attached_devices():
-            mconfig = MMonkeyConfig()
+            mconfig = MMonkeyConfig.monkeyconfig()
             mc = BMonkeyConfig.monkeyConfig(mconfig, ini_file)
-
+            # 打开想要的activity
             ba.open_app(mc.package_name, mc.activity)
-            # os.system('adb shell cat /system/build.prop >'+mc.get_phone_msg_log()) #存放的手机信息
-            # ll_list = getPhoneMsg(mc.get_phone_msg_log())
-            # monkey开始测试
-            sum = mc.sum
             temp = ""
-            monkeylog = ""
-            start_monkey(mc.cmd, mc.logdir, mc.now, mc.logdir + "\\" + mc.now + r"logcat.log")
+             # monkey开始测试
+            start_monkey(mc.cmd, mc.logdir, mc.now, mc.monkey_log)
 
-            ml = MMatplo()
-            bm = BMenCpu(mc.package_name)
-            ml.cpu = [[], []]
-            ml.men = [[], []]
-            ml.title = ["cpu测试", "流量测试"]
-            ml.locator = 2
-
-            for i in range(sum):
-                time.sleep(1)
+            # cpu,men统计
+            # ml = MMatplo.matplo()
+            # bm = BMenCpu.get_men_cpu(mc.package_name)
+            # ml.cpu = [[], []]
+            # ml.men = [[], []]
+            # ml.title = ["cpu测试", "内存测试"]
+            # ml.locator = 2
+            for i in range(mc.sum):
+                time.sleep(0.5)
                 dn = dt.datetime.now()
-                ml.cpu[0].append(dn)
-                cpu = bm.top_cpu(mc.package_name)
-                # CPU[1].append(m.top_cpu(mc.get_package_name()))
-                ml.men[0].append(dn)
-                men = bm.get_men(mc.get_package_name())
-                # MEN[1].append(m.get_men(mc.get_package_name()))
-                monkeylog = open(mc.logdir + "\\" + mc.now+"monkey.log")
-                temp = monkeylog.read()
-                monkeylog.close()
-                if temp.count('Monkey finished')>0:
+                # ml.cpu[0].append(dn)
+                # cpu = bm.top_cpu()
+                # ml.men[0].append(dn)
+                # men = bm.get_men()
+                with open(mc.monkey_log, encoding='utf-8') as monkeylog:
+                    temp = monkeylog.read()
+                if temp.count('Monkey finished') > 0:
                     print("测试完成咯")
-                    ml.cpu[1].append(cpu)
-                    ml.men[1].append(men)
-                    # geterror(ll_list, mc.get_log(), mc.get_remote_path(), mc.now)
-                    BMatPlo.cpu_men_plots(ml)
+                    # ml.cpu[1].append(cpu)
+                    # ml.men[1].append(men)
+                    # BMatPlo.cpu_men_plots(ml)
+                    get_error(mc.monkey_log)
                     break
+            # get_error(mc.monkey_log)
         else:
             print("设备不存在")
     else:
