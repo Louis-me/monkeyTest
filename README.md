@@ -29,7 +29,8 @@ exceptions=['NullPointer','IllegalState','IllegalArgument','ArrayIndexOutOfBound
 - sum 定义随机事件数
 - exceptions 异常定义，用于后面扩展
 ## 结果生成为可视化图片 使用的是matplotlib 
-![monkey日志图](img/monkey.png  "monkey日志图")
+
+![monkey日志图](img/monkey.png,  "monkey日志图")
 
 * 当然可以看日志文件
 
@@ -44,9 +45,9 @@ exceptions=['NullPointer','IllegalState','IllegalArgument','ArrayIndexOutOfBound
 * monkey监控app的性能参数，根本就不准确，已经去掉
 * 新增monkey做稳定性功能测试，测试报告：
 
-![monkey结果](img/monkey1.png  "monkey结果")
+![monkey结果](img/monkey1.png,  "monkey结果")
 
-![monkey日志](img/log.png  "monkey日志")
+![monkey日志](img/log.png, "monkey日志")
 
 * 可以参考我的[ui自动化测试平台](github.com/284772894/appiumn_auto)
 
