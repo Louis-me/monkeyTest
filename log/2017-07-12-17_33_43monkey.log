@@ -1,0 +1,228 @@
+:Monkey: seed=1500949428600 count=80
+:AllowPackage: com.example.monkey
+:IncludeCategory: android.intent.category.LAUNCHER
+:IncludeCategory: android.intent.category.MONKEY
+// Selecting main activities from category android.intent.category.LAUNCHER
+//   - NOT USING main activity com.android.browser.BrowserActivity (from package com.android.browser)
+//   - NOT USING main activity com.android.contacts.activities.PeopleActivity (from package com.android.contacts)
+//   - NOT USING main activity com.android.contacts.activities.DialtactsActivity (from package com.android.contacts)
+//   - NOT USING main activity com.android.mms.ui.ConversationList (from package com.android.contacts)
+//   - NOT USING main activity com.huawei.gallery.app.GalleryActivity (from package com.android.gallery3d)
+//   - NOT USING main activity com.android.email.activity.Welcome (from package com.android.email)
+//   - NOT USING main activity com.huawei.camera (from package com.huawei.camera)
+//   - NOT USING main activity com.android.settings.HWSettings (from package com.android.settings)
+//   - NOT USING main activity com.android.calculator2.Calculator (from package com.android.calculator2)
+//   - NOT USING main activity com.android.calendar.AllInOneActivity (from package com.android.calendar)
+//   - NOT USING main activity com.android.deskclock.AlarmsMainActivity (from package com.android.deskclock)
+//   - NOT USING main activity com.huawei.android.hicloud.hisync.activity.NewHiSyncSettingActivity (from package com.huawei.android.ds)
+//   - NOT USING main activity com.android.mediacenter.PageActivity (from package com.android.mediacenter)
+//   - NOT USING main activity com.example.android.notepad.NotePadActivity (from package com.example.android.notepad)
+//   - NOT USING main activity com.huawei.hidisk.filemanager.FileManager (from package com.huawei.hidisk)
+//   - NOT USING main activity com.chaozh.iReader.ui.activity.WelcomeActivity (from package com.chaozh.iReaderFree)
+//   - NOT USING main activity com.google.android.apps.chrome.Main (from package com.android.chrome)
+//   - NOT USING main activity com.sohu.inputmethod.sogou.SogouIMELauncher (from package com.sohu.inputmethod.sogou)
+//   - NOT USING main activity com.tencent.pangu.link.SplashActivity (from package com.tencent.android.qqdownloader)
+//   - NOT USING main activity com.baidu.baidumaps.WelcomeScreen (from package com.baidu.BaiduMap)
+//   - NOT USING main activity com.evernote.ui.HomeActivity (from package com.evernote)
+//   - NOT USING main activity com.huawei.phoneservice.ui.HelpCenterActivity (from package com.huawei.phoneservice)
+//   - NOT USING main activity com.huawei.hwvplayer.framework.MainActivity (from package com.huawei.hwvplayer)
+//   - NOT USING main activity com.android.keyguard.keyguardplus.OneKeyLockActivity (from package com.android.keyguard)
+//   - NOT USING main activity com.android.providers.downloads.ui.DownloadList (from package com.android.providers.downloads.ui)
+//   - NOT USING main activity com.huawei.KoBackup.InitializeActivity (from package com.huawei.KoBackup)
+//   - NOT USING main activity com.huawei.android.FMRadio.FMRadioMainActivity (from package com.huawei.android.FMRadio)
+//   - NOT USING main activity com.huawei.vassistant.ui.VAssistantActivity (from package com.huawei.vassistant)
+//   - NOT USING main activity com.huawei.android.hwouc.ui.activities.MainEntranceActivity (from package com.huawei.android.hwouc)
+//   - NOT USING main activity com.android.soundrecorder.SoundRecorder (from package com.android.soundrecorder)
+//   - NOT USING main activity com.huawei.systemmanager.mainscreen.MainScreenActivity (from package com.huawei.systemmanager)
+//   - NOT USING main activity com.huawei.android.thememanager.HwThemeManagerActivity (from package com.huawei.android.thememanager)
+//   - NOT USING main activity com.huawei.vdrive.ui.VDriveActivity (from package com.huawei.vdrive)
+//   - NOT USING main activity com.huawei.android.totemweather.WeatherHome (from package com.huawei.android.totemweather)
+//   - NOT USING main activity com.huawei.magnifier.MagnifierActivity (from package com.huawei.magnifier)
+//   - NOT USING main activity com.android.stk.StkLauncherActivity (from package com.android.stk)
+//   - NOT USING main activity com.android.stk.StkLauncherActivity2 (from package com.android.stk)
+//   - NOT USING main activity com.android.systemui.flashlight.FlashlightActivity (from package com.android.systemui)
+//   - NOT USING main activity com.android.hwmirror.Mirror (from package com.android.hwmirror)
+//   - NOT USING main activity com.huawei.android.remotecontroller.StartActivity (from package com.huawei.android.remotecontroller)
+//   - NOT USING main activity com.kingroot.kinguser.activitys.SliderMainActivity-Entry (from package com.kingroot.kinguser)
+//   - NOT USING main activity com.huawei.appmarket.MainActivity (from package com.huawei.appmarket)
+//   - NOT USING main activity com.autonavi.map.activity.SplashActivity (from package com.autonavi.minimap)
+//   - NOT USING main activity com.jingdong.app.mall.main.MainActivity (from package com.jingdong.app.mall)
+//   - NOT USING main activity com.baiji.jianshu.account.SplashScreenActivity (from package com.jianshu.haruki)
+//   - NOT USING main activity cn.com.cmbc.newmbank.activity.WelComeActivity (from package cn.com.cmbc.newmbank)
+//   - NOT USING main activity com.tencent.news.activity.SplashActivity (from package com.tencent.news)
+//   - NOT USING main activity com.tencent.mobileqq.activity.SplashActivity (from package com.tencent.qqlite)
+//   - NOT USING main activity cn.etouch.ecalendar.ECalendar (from package cn.etouch.ecalendar)
+//   - NOT USING main activity com.tmall.wireless.splash.TMSplashActivity (from package com.tmall.wireless)
+//   - NOT USING main activity com.taobao.tao.welcome.Welcome (from package com.taobao.taobao)
+//   - NOT USING main activity io.appium.settings.Settings (from package io.appium.settings)
+//   - NOT USING main activity com.mobike.mobikeapp.SplashActivity (from package com.mobike.mobikeapp)
+//   - NOT USING main activity io.appium.unlock.Unlock (from package io.appium.unlock)
+//   - NOT USING main activity com.intsig.camscanner.WelcomeActivity (from package com.intsig.camscanner)
+//   - NOT USING main activity com.sinovatech.unicom.ui.WelcomeClient (from package com.sinovatech.unicom.ui)
+//   - NOT USING main activity com.didi.sdk.app.DidiLoadDexActivity (from package com.sdu.didi.psnger)
+//   - NOT USING main activity com.sankuai.meituan.activity.Welcome (from package com.sankuai.meituan)
+//   - NOT USING main activity com.speedsoftware.rootexplorer.RootExplorer (from package com.speedsoftware.rootexplorer)
+//   - NOT USING main activity sogou.mobile.explorer.NoDisplayActivity (from package sogou.mobile.explorer)
+//   - NOT USING main activity com.tencent.mm.ui.LauncherUI (from package com.tencent.mm)
+//   - NOT USING main activity com.eg.android.AlipayGphone.AlipayLogin (from package com.eg.android.AlipayGphone)
+//   - NOT USING main activity dev.xesam.chelaile.app.module.func.SplashActivity (from package com.ygkj.chelaile.standard)
+//   - NOT USING main activity com.happyelements.hellolua.MainActivity (from package com.happyelements.AndroidAnimal)
+//   - NOT USING main activity com.huawei.it.w3m.login.WelcomeActivity (from package com.wiseoper)
+//   + Using main activity com.example.monkey.MainActivity (from package com.example.monkey)
+// Selecting main activities from category android.intent.category.MONKEY
+//   - NOT USING main activity com.android.settings.Settings$RunningServicesActivity (from package com.android.settings)
+//   - NOT USING main activity com.android.settings.Settings$StorageUseActivity (from package com.android.settings)
+//   - NOT USING main activity com.huawei.android.launcher.Launcher (from package com.huawei.android.launcher)
+// Seeded: 1500949428600
+// Event percentages:
+//   0: 15.0%
+//   1: 10.0%
+//   2: 2.0%
+//   3: 15.0%
+//   4: -0.0%
+//   5: 25.0%
+//   6: 15.0%
+//   7: 2.0%
+//   8: 2.0%
+//   9: 1.0%
+//   10: 13.0%
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.example.monkey/.MainActivity;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.example.monkey/.MainActivity } in package com.example.monkey
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 77    // KEYCODE_AT
+:Sending Key (ACTION_UP): 77    // KEYCODE_AT
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Key (ACTION_DOWN): 16    // KEYCODE_9
+:Sending Key (ACTION_UP): 16    // KEYCODE_9
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(982.0,830.0)
+:Sending Touch (ACTION_MOVE): 0:(981.7403,833.1747)
+:Sending Touch (ACTION_MOVE): 0:(980.7628,834.64545)
+:Sending Touch (ACTION_MOVE): 0:(978.37915,840.9909)
+:Sending Touch (ACTION_MOVE): 0:(978.1957,844.0454)
+:Sending Touch (ACTION_MOVE): 0:(975.7327,847.6026)
+:Sending Touch (ACTION_MOVE): 0:(975.2354,854.86444)
+:Sending Touch (ACTION_MOVE): 0:(974.5389,855.1039)
+:Sending Touch (ACTION_MOVE): 0:(972.0147,858.8304)
+:Sending Touch (ACTION_MOVE): 0:(971.36676,865.40137)
+:Sending Touch (ACTION_UP): 0:(970.8305,867.7028)
+Sleeping for 500 milliseconds
+// CRASH: com.example.monkey (pid 20616)
+// Short Msg: java.lang.NullPointerException
+// Long Msg: java.lang.NullPointerException
+// Build Label: Huawei/H60-L02/hwH60:4.4.2/HDH60-L02/CHNC00B316:user/ota-rel-keys,release-keys
+// Build Changelist: CHNC00B316
+// Build Time: 1431976500000
+// java.lang.NullPointerException
+// 	at com.example.monkey.MainActivity$1.onClick(MainActivity.java:23)
+// 	at android.view.View.performClick(View.java:4446)
+// 	at android.view.View$PerformClick.run(View.java:18480)
+// 	at android.os.Handler.handleCallback(Handler.java:733)
+// 	at android.os.Handler.dispatchMessage(Handler.java:95)
+// 	at android.os.Looper.loop(Looper.java:136)
+// 	at android.app.ActivityThread.main(ActivityThread.java:5314)
+// 	at java.lang.reflect.Method.invokeNative(Native Method)
+// 	at java.lang.reflect.Method.invoke(Method.java:515)
+// 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:864)
+// 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:680)
+// 	at dalvik.system.NativeStart.main(Native Method)
+// 
+:Sending Touch (ACTION_DOWN): 0:(423.0,1142.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(420.6705,1141.2423) 1:(1019.0,940.0)
+:Sending Touch (ACTION_MOVE): 0:(419.89285,1139.9507) 1:(1025.0442,938.6496)
+:Sending Touch (ACTION_MOVE): 0:(403.84384,1138.8296) 1:(1031.9972,937.79095)
+:Sending Touch (ACTION_MOVE): 0:(402.75836,1137.5905) 1:(1036.7147,936.68)
+:Sending Touch (ACTION_MOVE): 0:(388.11334,1136.9895) 1:(1045.799,934.7055)
+:Sending Touch (ACTION_MOVE): 0:(370.69485,1136.2242) 1:(1054.4382,933.85547)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(363.35263,1135.822) 1:(1062.8145,931.74963)
+:Sending Touch (ACTION_UP): 0:(357.17117,1135.6622)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 88    // KEYCODE_MEDIA_PREVIOUS
+:Sending Key (ACTION_UP): 88    // KEYCODE_MEDIA_PREVIOUS
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 203    // KEYCODE_BUTTON_16
+:Sending Key (ACTION_UP): 203    // KEYCODE_BUTTON_16
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 251    // 251
+:Sending Key (ACTION_UP): 251    // 251
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(878.0,610.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(868.62994,609.54346) 1:(1045.0,1567.0)
+:Sending Touch (ACTION_MOVE): 0:(859.6814,592.71625) 1:(1037.835,1570.4288)
+:Sending Touch (ACTION_MOVE): 0:(853.3273,591.4212) 1:(1036.6678,1590.4899)
+:Sending Touch (ACTION_MOVE): 0:(848.39526,576.5025) 1:(1036.4213,1606.2336)
+:Sending Touch (ACTION_MOVE): 0:(843.31335,569.1044) 1:(1025.6906,1625.66)
+:Sending Touch (ACTION_MOVE): 0:(842.0072,549.2337) 1:(1024.2894,1636.5099)
+:Sending Touch (ACTION_MOVE): 0:(833.8588,540.1949) 1:(1016.6635,1650.2395)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(828.5941,521.40063) 1:(1015.5445,1669.982)
+:Sending Touch (ACTION_UP): 0:(821.6777,512.3397)
+Sleeping for 500 milliseconds
+// CRASH: com.example.monkey (pid 20698)
+// Short Msg: java.lang.NullPointerException
+// Long Msg: java.lang.NullPointerException
+// Build Label: Huawei/H60-L02/hwH60:4.4.2/HDH60-L02/CHNC00B316:user/ota-rel-keys,release-keys
+// Build Changelist: CHNC00B316
+// Build Time: 1431976500000
+// java.lang.NullPointerException
+// 	at com.example.monkey.MainActivity$1.onClick(MainActivity.java:23)
+// 	at android.view.View.performClick(View.java:4446)
+// 	at android.view.View$PerformClick.run(View.java:18480)
+// 	at android.os.Handler.handleCallback(Handler.java:733)
+// 	at android.os.Handler.dispatchMessage(Handler.java:95)
+// 	at android.os.Looper.loop(Looper.java:136)
+// 	at android.app.ActivityThread.main(ActivityThread.java:5314)
+// 	at java.lang.reflect.Method.invokeNative(Native Method)
+// 	at java.lang.reflect.Method.invoke(Method.java:515)
+// 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:864)
+// 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:680)
+// 	at dalvik.system.NativeStart.main(Native Method)
+// 
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(1.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(235.0,1200.0)
+:Sending Touch (ACTION_MOVE): 0:(223.99146,1199.5557)
+:Sending Touch (ACTION_MOVE): 0:(202.23206,1198.7502)
+:Sending Touch (ACTION_MOVE): 0:(201.38303,1196.0262)
+:Sending Touch (ACTION_MOVE): 0:(196.44798,1192.6843)
+:Sending Touch (ACTION_MOVE): 0:(195.9052,1181.8105)
+:Sending Touch (ACTION_MOVE): 0:(173.73415,1172.3538)
+:Sending Touch (ACTION_MOVE): 0:(165.12859,1163.8163)
+:Sending Touch (ACTION_UP): 0:(154.496,1155.5753)
+Events injected: 80
+:Sending rotation degree=0, persist=false
+:Dropped: keys=0 pointers=9 trackballs=0 flips=0 rotations=0
+## Network stats: elapsed time=7374ms (0ms mobile, 0ms wifi, 7374ms not connected)
+// Monkey finished

@@ -1,82 +1,136 @@
 # -*- coding: utf-8 -*-
+import datetime
+import time
+
+import math
+import xlsxwriter
+
 __author__ = 'shikun'
 import os
-from BLL import BAdbCommon
-from Common import OperateFile
-from BLL import BMonkeyConfig
-from Model import MMonkeyConfig
+from Base import AdbCommon
+from Base import OperateFile
+from Base import BaseMonkeyConfig
 import re
-from Common import Globals as go
-from BLL import BphomeMsg
-from Common import Cprint
+from Base import BaseCashEmnu as go
+from Base import BasePhoneMsg
+from Base import BaseReport
+from Base import BaseMonitor
+from Base import BaseAnalysis
+PATH = lambda p: os.path.abspath(
+    os.path.join(os.path.dirname(__file__), p)
+)
+workbook = xlsxwriter.Workbook('report.xlsx')
+bo = BaseReport.OperateReport(workbook)
+
 def get_error(log):
-    cp = Cprint.Color() # 在cmd中输出带颜色的命名
+    crash = []
     with open(log, encoding="utf-8") as monkey_log:
         lines = monkey_log.readlines()
         for line in lines:
             if re.findall(go.ANR, line):
-                # print('\033[1;31;42m')
-                # print("存在anr错误:", line)
-                cp.print_red_text("存在anr错误:"+ line)
-                go.I_ANR += 1
+                print("存在anr错误:"+ line)
+                crash.append(line)
             if re.findall(go.CRASH, line):
-                # print('\033[1;31;42m')
-                cp.print_red_text("存在crash错误:"+line)
-                go.I_CRASH += 1
+                print("存在crash错误:" + line)
+                crash.append(line)
             if re.findall(go.EXCEPTION, line):
-                # print('\033[1;31;42m')
-                cp.print_red_text("存在exception异常:"+line)
-                go.I_EXCEPTION += 1
-        if go.I_ANR == 0 and go.I_CRASH == 0 and go.I_EXCEPTION == 0:
-            cp.print_green_text("恭喜，没有任何错误")
+                print("存在crash错误:" + line)
+                crash.append(line)
+    if len(crash):
+        worksheet2 = workbook.add_worksheet("异常日志")
+        bo.crash(worksheet2, crash)
 
- # 存手机信息
-def get_phome(phonelog):
-    bg = BphomeMsg.getPhone("log.txt").get_phone_Kernel()
-    logname = phonelog + "_" + bg[0]["phone_model"] + bg[0]["phone_name"] + bg[0]["release"] + ".txt"
-    of = OperateFile.base_file(logname, "w+")
-    if of.mkdir_file():
-        result = "手机型号：" + bg[0]["phone_name"] + "\n"
-        result += "手机名字：" + bg[0]["phone_model"] + "\n"
-        result += "系统版本：" + bg[0]["release"] + "\n"
-        result += "手机分辨率：" + bg[3] + "\n"
-        result += "手机运行内存：" + bg[1] + "\n"
-        result += "CPU核数：" + bg[2] + "\n"
-        of.write_txt(result)
+def report(app,sumTime):
+
+    header = get_phome()
+
+
+    worksheet1 = workbook.add_worksheet("性能监控")
+    app["maxMen"] = BaseAnalysis.maxMen(BaseMonitor.men)
+    app["avgMen"] = BaseAnalysis.avgMen(men=BaseMonitor.men, total=header["rom"])
+    app["maxCpu"] = BaseAnalysis.maxCpu(BaseMonitor.cpu)
+    app["avgCpu"] = BaseAnalysis.avgCpu(BaseMonitor.cpu)
+    app["maxFps"] = BaseAnalysis.avgFps(BaseMonitor.fps)
+    app["avgFps"] = BaseAnalysis.avgFps(BaseMonitor.fps)
+    app["afterBattery"] = BaseMonitor.get_battery()
+    _maxFlow = BaseAnalysis.maxFlow(BaseMonitor.flow)
+    _avgFLow = BaseAnalysis.avgFlow(BaseMonitor.flow)
+    app["maxFlowUp"] = _maxFlow[0]
+    app["maxFlowDown"] = _maxFlow[1]
+    app["avgFlowUp"] = _avgFLow[0]
+    app["avgFlowDown"] = _avgFLow[1]
+    header["time"] = sumTime
+    header["net"] = app["net"]
+    bo.monitor(worksheet=worksheet1, header=header, data=app)
+    print("---monkey_log------")
+    print(app["monkey_log"])
+    get_error(log=app["monkey_log"])
+
+    worksheet3 = workbook.add_worksheet("详细信息")
+    app = {}
+    app["cpu"] = BaseMonitor.cpu
+    app["men"] = BaseMonitor.men
+    app["flow"] = BaseMonitor.flow
+    app["battery"] = BaseMonitor.battery
+    app["fps"] = BaseMonitor.fps
+    bo.analysis(worksheet3, app)
+
+
+
+ # 手机信息
+def get_phome():
+    bg = BasePhoneMsg.getPhone("log.txt").get_phone_Kernel()
+    app = {}
+    app["phone_name"] = bg[0]["phone_name"] + "_" + bg[0]["phone_model"]
+    app["pix"] = bg[3]
+    app["rom"] = bg[1]
+    app["kel"] = bg[2]
+    return app
+
 
 #开始脚本测试
-def start_monkey(cmd, logdir, now1):
+def start_monkey(cmd, log):
 
     # Monkey测试结果日志:monkey_log
     os.popen(cmd )
     print(cmd)
 
     # Monkey时手机日志,logcat
-    logcatname = logdir+"\\"+now1+r"logcat.log"
+    logcatname = log + r"logcat.log"
     cmd2 = "adb logcat -d >%s" %(logcatname)
     os.popen(cmd2)
 
+    #"导出traces文件"
+    tracesname = log + r"traces.log"
+    cmd3 = "adb shell cat /data/anr/traces.txt>%s" % tracesname
+    os.popen(cmd3)
 if __name__ == '__main__':
-    ini_file = 'monkey.ini'
-    ba = BAdbCommon
-    if OperateFile.base_file(ini_file, "r").check_file():
-        if ba.attached_devices():
-            mconfig = MMonkeyConfig.monkeyconfig()
-            mc = BMonkeyConfig.monkeyConfig(mconfig, ini_file)
-            # 打开想要的activity
-            ba.open_app(mc.package_name, mc.activity)
-            temp = ""
-             # monkey开始测试
-            start_monkey(mc.cmd, mc.logdir, mc.now)
-            while True:
-                with open(mc.monkey_log, encoding='utf-8') as monkeylog:
-                    if monkeylog.read().count('Monkey finished') > 0:
-                        print("测试完成咯")
-                        get_error(mc.monkey_log)
-                        get_phome(mc.phone_msg_log)
-                        break
-        else:
-            print("设备不存在")
+    ba = AdbCommon.AndroidDebugBridge()
+    if ba.attached_devices():
+        mc = BaseMonkeyConfig.monkeyConfig(PATH("monkey.ini"))
+        # 打开想要的activity
+        ba.open_app(mc["package_name"], mc["activity"])
+        temp = ""
+         # monkey开始测试
+        start_monkey(mc["cmd"], mc["log"])
+        time.sleep(1)
+        starttime = datetime.datetime.now()
+        while True:
+            with open(mc["monkey_log"], encoding='utf-8') as monkeylog:
+                BaseMonitor.get_cpu(mc["package_name"])
+                BaseMonitor.get_men(mc["package_name"])
+                BaseMonitor.get_fps(mc["package_name"])
+                BaseMonitor.get_battery()
+                BaseMonitor.get_flow(mc["package_name"], mc["net"])
+                time.sleep(1) # 每1秒采集检查一次
+                if monkeylog.read().count('Monkey finished') > 0:
+                    endtime = datetime.datetime.now()
+                    print("测试完成咯")
+                    app = {"beforeBattery": BaseMonitor.get_battery(), "net": mc["net"], "monkey_log": mc["monkey_log"]}
+                    report(app, str((endtime - starttime).seconds) + "秒")
+                    bo.close()
+                    # get_error(mc["monkey_log"])
+                    # get_phome(mc.phone_msg_log)
+                    break
     else:
-        print(u"配置文件不存在"+ini_file)
-
+        print("设备不存在")
