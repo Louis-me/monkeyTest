@@ -1,8 +1,7 @@
 # monkey android test
 * python3 
-* Statistical performance cpu,men,fps,battery,flow
-* Support wifi,gprs info.
-* Support crash info.
+* Statistical performance cpu,men,fps,battery,flow(wifi,gprs)
+* Statistics crash info.
  
 
 
