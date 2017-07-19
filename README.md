@@ -27,7 +27,7 @@ net = wifi
 ![monkey结果](img/crash.PNG  "monkey结果")
 
 # other
-* [Chinese] (Chinese.md)
+* [Chinese](Chinese.md)
 
 
 
