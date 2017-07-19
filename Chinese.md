@@ -1,12 +1,12 @@
-# monkey android test
+# monkey 压力测试android 征
 * python3 
-* Statistical performance cpu,men,fps,battery,flow
-* Support wifi,gprs info.
-* Support crash info.
+* 统计性能信息cpu,men,fps,battery,flow
+* 支持wifi,gprs统计
+* 统计crash信息
  
 
 
-## monkey.ini setting
+## monkey.ini 配置文件
 
 ``` 
 
@@ -16,8 +16,8 @@ activity = com.baiji.jianshu.account.SplashScreenActivity
 net = wifi 
 ```
 
-- throttle Each event waits for 500 milliseconds
-- net gprs or wifi
+- throttle 每次事件等待500毫秒
+- net 支持gprs和wifi
 
 
 ![monkey结果](img/analysis.PNG  "monkey结果")
@@ -25,9 +25,6 @@ net = wifi
 ![monkey结果](img/monitor.png  "monkey结果")
 
 ![monkey结果](img/crash.PNG  "monkey结果")
-
-# other
-* [Chinese] (Chinese.md)
 
 
 

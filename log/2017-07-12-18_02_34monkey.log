@@ -1,0 +1,398 @@
+:Monkey: seed=1500958675475 count=200
+:AllowPackage: com.jianshu.haruki
+:IncludeCategory: android.intent.category.LAUNCHER
+:IncludeCategory: android.intent.category.MONKEY
+// Selecting main activities from category android.intent.category.LAUNCHER
+//   - NOT USING main activity com.android.browser.BrowserActivity (from package com.android.browser)
+//   - NOT USING main activity com.android.contacts.activities.PeopleActivity (from package com.android.contacts)
+//   - NOT USING main activity com.android.contacts.activities.DialtactsActivity (from package com.android.contacts)
+//   - NOT USING main activity com.android.mms.ui.ConversationList (from package com.android.contacts)
+//   - NOT USING main activity com.huawei.gallery.app.GalleryActivity (from package com.android.gallery3d)
+//   - NOT USING main activity com.android.email.activity.Welcome (from package com.android.email)
+//   - NOT USING main activity com.huawei.camera (from package com.huawei.camera)
+//   - NOT USING main activity com.android.settings.HWSettings (from package com.android.settings)
+//   - NOT USING main activity com.android.calculator2.Calculator (from package com.android.calculator2)
+//   - NOT USING main activity com.android.calendar.AllInOneActivity (from package com.android.calendar)
+//   - NOT USING main activity com.android.deskclock.AlarmsMainActivity (from package com.android.deskclock)
+//   - NOT USING main activity com.huawei.android.hicloud.hisync.activity.NewHiSyncSettingActivity (from package com.huawei.android.ds)
+//   - NOT USING main activity com.android.mediacenter.PageActivity (from package com.android.mediacenter)
+//   - NOT USING main activity com.example.android.notepad.NotePadActivity (from package com.example.android.notepad)
+//   - NOT USING main activity com.huawei.hidisk.filemanager.FileManager (from package com.huawei.hidisk)
+//   - NOT USING main activity com.chaozh.iReader.ui.activity.WelcomeActivity (from package com.chaozh.iReaderFree)
+//   - NOT USING main activity com.google.android.apps.chrome.Main (from package com.android.chrome)
+//   - NOT USING main activity com.sohu.inputmethod.sogou.SogouIMELauncher (from package com.sohu.inputmethod.sogou)
+//   - NOT USING main activity com.tencent.pangu.link.SplashActivity (from package com.tencent.android.qqdownloader)
+//   - NOT USING main activity com.baidu.baidumaps.WelcomeScreen (from package com.baidu.BaiduMap)
+//   - NOT USING main activity com.evernote.ui.HomeActivity (from package com.evernote)
+//   - NOT USING main activity com.huawei.phoneservice.ui.HelpCenterActivity (from package com.huawei.phoneservice)
+//   - NOT USING main activity com.huawei.hwvplayer.framework.MainActivity (from package com.huawei.hwvplayer)
+//   - NOT USING main activity com.android.keyguard.keyguardplus.OneKeyLockActivity (from package com.android.keyguard)
+//   - NOT USING main activity com.android.providers.downloads.ui.DownloadList (from package com.android.providers.downloads.ui)
+//   - NOT USING main activity com.huawei.KoBackup.InitializeActivity (from package com.huawei.KoBackup)
+//   - NOT USING main activity com.huawei.android.FMRadio.FMRadioMainActivity (from package com.huawei.android.FMRadio)
+//   - NOT USING main activity com.huawei.vassistant.ui.VAssistantActivity (from package com.huawei.vassistant)
+//   - NOT USING main activity com.huawei.android.hwouc.ui.activities.MainEntranceActivity (from package com.huawei.android.hwouc)
+//   - NOT USING main activity com.android.soundrecorder.SoundRecorder (from package com.android.soundrecorder)
+//   - NOT USING main activity com.huawei.systemmanager.mainscreen.MainScreenActivity (from package com.huawei.systemmanager)
+//   - NOT USING main activity com.huawei.android.thememanager.HwThemeManagerActivity (from package com.huawei.android.thememanager)
+//   - NOT USING main activity com.huawei.vdrive.ui.VDriveActivity (from package com.huawei.vdrive)
+//   - NOT USING main activity com.huawei.android.totemweather.WeatherHome (from package com.huawei.android.totemweather)
+//   - NOT USING main activity com.huawei.magnifier.MagnifierActivity (from package com.huawei.magnifier)
+//   - NOT USING main activity com.android.stk.StkLauncherActivity (from package com.android.stk)
+//   - NOT USING main activity com.android.stk.StkLauncherActivity2 (from package com.android.stk)
+//   - NOT USING main activity com.android.systemui.flashlight.FlashlightActivity (from package com.android.systemui)
+//   - NOT USING main activity com.android.hwmirror.Mirror (from package com.android.hwmirror)
+//   - NOT USING main activity com.huawei.android.remotecontroller.StartActivity (from package com.huawei.android.remotecontroller)
+//   - NOT USING main activity com.kingroot.kinguser.activitys.SliderMainActivity-Entry (from package com.kingroot.kinguser)
+//   - NOT USING main activity com.huawei.appmarket.MainActivity (from package com.huawei.appmarket)
+//   - NOT USING main activity com.autonavi.map.activity.SplashActivity (from package com.autonavi.minimap)
+//   - NOT USING main activity com.jingdong.app.mall.main.MainActivity (from package com.jingdong.app.mall)
+//   + Using main activity com.baiji.jianshu.account.SplashScreenActivity (from package com.jianshu.haruki)
+//   - NOT USING main activity cn.com.cmbc.newmbank.activity.WelComeActivity (from package cn.com.cmbc.newmbank)
+//   - NOT USING main activity com.tencent.news.activity.SplashActivity (from package com.tencent.news)
+//   - NOT USING main activity com.tencent.mobileqq.activity.SplashActivity (from package com.tencent.qqlite)
+//   - NOT USING main activity cn.etouch.ecalendar.ECalendar (from package cn.etouch.ecalendar)
+//   - NOT USING main activity com.tmall.wireless.splash.TMSplashActivity (from package com.tmall.wireless)
+//   - NOT USING main activity com.taobao.tao.welcome.Welcome (from package com.taobao.taobao)
+//   - NOT USING main activity io.appium.settings.Settings (from package io.appium.settings)
+//   - NOT USING main activity com.mobike.mobikeapp.SplashActivity (from package com.mobike.mobikeapp)
+//   - NOT USING main activity io.appium.unlock.Unlock (from package io.appium.unlock)
+//   - NOT USING main activity com.intsig.camscanner.WelcomeActivity (from package com.intsig.camscanner)
+//   - NOT USING main activity com.sinovatech.unicom.ui.WelcomeClient (from package com.sinovatech.unicom.ui)
+//   - NOT USING main activity com.didi.sdk.app.DidiLoadDexActivity (from package com.sdu.didi.psnger)
+//   - NOT USING main activity com.sankuai.meituan.activity.Welcome (from package com.sankuai.meituan)
+//   - NOT USING main activity com.speedsoftware.rootexplorer.RootExplorer (from package com.speedsoftware.rootexplorer)
+//   - NOT USING main activity sogou.mobile.explorer.NoDisplayActivity (from package sogou.mobile.explorer)
+//   - NOT USING main activity com.tencent.mm.ui.LauncherUI (from package com.tencent.mm)
+//   - NOT USING main activity com.eg.android.AlipayGphone.AlipayLogin (from package com.eg.android.AlipayGphone)
+//   - NOT USING main activity dev.xesam.chelaile.app.module.func.SplashActivity (from package com.ygkj.chelaile.standard)
+//   - NOT USING main activity com.happyelements.hellolua.MainActivity (from package com.happyelements.AndroidAnimal)
+//   - NOT USING main activity com.huawei.it.w3m.login.WelcomeActivity (from package com.wiseoper)
+//   - NOT USING main activity com.example.monkey.MainActivity (from package com.example.monkey)
+// Selecting main activities from category android.intent.category.MONKEY
+//   - NOT USING main activity com.android.settings.Settings$RunningServicesActivity (from package com.android.settings)
+//   - NOT USING main activity com.android.settings.Settings$StorageUseActivity (from package com.android.settings)
+//   - NOT USING main activity com.huawei.android.launcher.Launcher (from package com.huawei.android.launcher)
+// Seeded: 1500958675475
+// Event percentages:
+//   0: 15.0%
+//   1: 10.0%
+//   2: 2.0%
+//   3: 15.0%
+//   4: -0.0%
+//   5: 25.0%
+//   6: 15.0%
+//   7: 2.0%
+//   8: 2.0%
+//   9: 1.0%
+//   10: 13.0%
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity } in package com.jianshu.haruki
+Sleeping for 500 milliseconds
+    // activityResuming(com.jianshu.haruki)
+    // activityResuming(com.jianshu.haruki)
+    // activityResuming(com.tencent.qqlite)
+    // Rejecting resume of package com.tencent.qqlite
+:Sending Touch (ACTION_DOWN): 0:(849.0,1625.0)
+:Sending Touch (ACTION_UP): 0:(831.21014,1606.4989)
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.jianshu.haruki/com.baiji.jianshu.ui.main.MainActivity } in package com.jianshu.haruki
+    // activityResuming(com.jianshu.haruki)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,-4.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-4.0)
+:Sending Touch (ACTION_DOWN): 0:(985.0,76.0)
+:Sending Touch (ACTION_UP): 0:(985.7144,76.45562)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(998.0,828.0)
+:Sending Touch (ACTION_MOVE): 0:(1013.41656,828.1626)
+:Sending Touch (ACTION_MOVE): 0:(1027.9375,828.3414)
+:Sending Touch (ACTION_MOVE): 0:(1034.7979,828.39996)
+:Sending Touch (ACTION_MOVE): 0:(1049.5432,828.72516)
+:Sending Touch (ACTION_MOVE): 0:(1063.4932,828.9078)
+:Sending Touch (ACTION_MOVE): 0:(1073.3763,828.94073)
+:Sending Touch (ACTION_MOVE): 0:(1080.0,829.28564)
+:Sending Touch (ACTION_MOVE): 0:(1080.0,829.4832)
+:Sending Touch (ACTION_UP): 0:(1080.0,829.7243)
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.jianshu.haruki/com.baiji.jianshu.ui.collection.CollectionActivity } in package com.jianshu.haruki
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(1047.0,754.0)
+:Sending Touch (ACTION_UP): 0:(1046.987,760.5875)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 24    // KEYCODE_VOLUME_UP
+:Sending Key (ACTION_UP): 24    // KEYCODE_VOLUME_UP
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(12.0,578.0)
+:Sending Touch (ACTION_UP): 0:(21.113445,562.49475)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(221.0,1374.0)
+:Sending Touch (ACTION_MOVE): 0:(204.84187,1375.7947)
+:Sending Touch (ACTION_MOVE): 0:(199.69781,1377.1781)
+:Sending Touch (ACTION_MOVE): 0:(185.86926,1386.1584)
+:Sending Touch (ACTION_UP): 0:(175.01152,1392.2474)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(1.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(3.0,0.0)
+:Sending Key (ACTION_DOWN): 168    // KEYCODE_ZOOM_IN
+:Sending Key (ACTION_UP): 168    // KEYCODE_ZOOM_IN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 92    // KEYCODE_PAGE_UP
+:Sending Key (ACTION_UP): 92    // KEYCODE_PAGE_UP
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(939.0,120.0)
+:Sending Touch (ACTION_UP): 0:(930.1221,127.43344)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(467.0,916.0)
+:Sending Touch (ACTION_UP): 0:(469.26312,906.12787)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 108    // KEYCODE_BUTTON_START
+:Sending Key (ACTION_UP): 108    // KEYCODE_BUTTON_START
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 225    // 225
+:Sending Key (ACTION_UP): 225    // 225
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+    // activityResuming(com.jianshu.haruki)
+:Sending Touch (ACTION_DOWN): 0:(874.0,72.0)
+:Sending Touch (ACTION_UP): 0:(875.43536,74.122505)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(677.0,642.0)
+:Sending Touch (ACTION_MOVE): 0:(683.12146,652.0617)
+:Sending Touch (ACTION_MOVE): 0:(702.2987,655.95105)
+:Sending Touch (ACTION_MOVE): 0:(718.5689,667.65594)
+:Sending Touch (ACTION_MOVE): 0:(736.2986,691.6994)
+:Sending Touch (ACTION_MOVE): 0:(750.5934,701.9121)
+:Sending Touch (ACTION_MOVE): 0:(764.78503,725.0074)
+:Sending Touch (ACTION_MOVE): 0:(781.1289,732.01825)
+:Sending Touch (ACTION_UP): 0:(786.0989,749.5348)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(767.0,741.0)
+:Sending Touch (ACTION_MOVE): 0:(768.80505,746.76794)
+:Sending Touch (ACTION_MOVE): 0:(768.9541,756.93567)
+:Sending Touch (ACTION_MOVE): 0:(769.7971,761.0081)
+:Sending Touch (ACTION_MOVE): 0:(769.89215,767.59686)
+:Sending Touch (ACTION_MOVE): 0:(772.05804,775.52344)
+:Sending Touch (ACTION_UP): 0:(773.72644,776.0733)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Can't open carrierweekinfo-conf.xml
+    //[calendar_time:2017-07-12 18:02:47.635  system_uptime:98856171]
+    // Sending event #100
+Sleeping for 500 milliseconds
+    //[calendar_time:2017-07-12 18:02:48.204  system_uptime:98856673]
+    // Sending event #100
+:Sending Key (ACTION_DOWN): 81    // KEYCODE_PLUS
+:Sending Key (ACTION_UP): 81    // KEYCODE_PLUS
+Sleeping for 500 milliseconds
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity } in package com.jianshu.haruki
+Sleeping for 500 milliseconds
+    // activityResuming(com.jianshu.haruki)
+    // activityResuming(com.tencent.qqlite)
+    // Rejecting resume of package com.tencent.qqlite
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.jianshu.haruki/com.baiji.jianshu.ui.main.MainActivity } in package com.jianshu.haruki
+    // activityResuming(com.jianshu.haruki)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,0.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-2.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,-5.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(4.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-4.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,-3.0)
+:Sending Touch (ACTION_DOWN): 0:(292.0,416.0)
+:Sending Touch (ACTION_POINTER_DOWN 1): 0:(305.03836,421.7334) 1:(581.0,1138.0)
+:Sending Touch (ACTION_POINTER_UP 1): 0:(319.57922,433.00623) 1:(589.24756,1141.0859)
+:Sending Touch (ACTION_UP): 0:(333.15143,440.05515)
+Sleeping for 500 milliseconds
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity } in package com.jianshu.haruki
+Sleeping for 500 milliseconds
+    // activityResuming(com.jianshu.haruki)
+    // activityResuming(com.tencent.qqlite)
+    // Rejecting resume of package com.tencent.qqlite
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.jianshu.haruki/com.baiji.jianshu.ui.main.MainActivity } in package com.jianshu.haruki
+    // activityResuming(com.jianshu.haruki)
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(806.0,1118.0)
+:Sending Touch (ACTION_MOVE): 0:(820.09753,1117.4583)
+:Sending Touch (ACTION_MOVE): 0:(827.3959,1116.5094)
+:Sending Touch (ACTION_MOVE): 0:(834.40643,1115.4319)
+:Sending Touch (ACTION_MOVE): 0:(840.5852,1112.2137)
+:Sending Touch (ACTION_MOVE): 0:(848.3998,1111.5813)
+:Sending Touch (ACTION_MOVE): 0:(858.76465,1109.0626)
+:Sending Touch (ACTION_MOVE): 0:(859.0134,1107.3306)
+:Sending Touch (ACTION_UP): 0:(859.138,1106.7677)
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.jianshu.haruki/com.baiji.jianshu.activity.UserPushingDetailActivity } in package com.jianshu.haruki
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-3.0,4.0)
+:Sending Trackball (ACTION_MOVE): 0:(2.0,1.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,2.0)
+:Sending Trackball (ACTION_MOVE): 0:(-2.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-5.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(-1.0,3.0)
+:Sending Trackball (ACTION_MOVE): 0:(1.0,-3.0)
+:Sending Trackball (ACTION_MOVE): 0:(0.0,4.0)
+:Sending Key (ACTION_DOWN): 21    // KEYCODE_DPAD_LEFT
+:Sending Key (ACTION_UP): 21    // KEYCODE_DPAD_LEFT
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(106.0,1114.0)
+:Sending Touch (ACTION_UP): 0:(112.54788,1114.9559)
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.jianshu.haruki/com.baiji.jianshu.ui.articledetail.ArticleDetailActivity } in package com.jianshu.haruki
+:Sending Touch (ACTION_DOWN): 0:(207.0,276.0)
+:Sending Touch (ACTION_UP): 0:(212.52519,279.04922)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 22    // KEYCODE_DPAD_RIGHT
+:Sending Key (ACTION_UP): 22    // KEYCODE_DPAD_RIGHT
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(725.0,176.0)
+:Sending Touch (ACTION_UP): 0:(722.48895,185.60652)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(40.0,523.0)
+:Sending Touch (ACTION_UP): 0:(35.15156,506.64264)
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 63    // KEYCODE_SYM
+:Sending Key (ACTION_UP): 63    // KEYCODE_SYM
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 85    // KEYCODE_MEDIA_PLAY_PAUSE
+:Sending Key (ACTION_UP): 85    // KEYCODE_MEDIA_PLAY_PAUSE
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 20    // KEYCODE_DPAD_DOWN
+:Sending Key (ACTION_UP): 20    // KEYCODE_DPAD_DOWN
+Sleeping for 500 milliseconds
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity } in package com.jianshu.haruki
+Sleeping for 500 milliseconds
+    // activityResuming(com.jianshu.haruki)
+    // activityResuming(com.jianshu.haruki)
+    // activityResuming(com.jianshu.haruki)
+    // activityResuming(com.tencent.qqlite)
+    // Rejecting resume of package com.tencent.qqlite
+:Sending Touch (ACTION_DOWN): 0:(164.0,740.0)
+:Sending Touch (ACTION_MOVE): 0:(160.13132,739.9297)
+:Sending Touch (ACTION_MOVE): 0:(153.24004,739.81573)
+:Sending Touch (ACTION_UP): 0:(152.17993,739.66736)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(640.0,161.0)
+:Sending Touch (ACTION_MOVE): 0:(628.7603,149.43)
+:Sending Touch (ACTION_MOVE): 0:(608.2455,141.48657)
+:Sending Touch (ACTION_MOVE): 0:(602.48956,140.42012)
+:Sending Touch (ACTION_MOVE): 0:(581.98706,133.9795)
+:Sending Touch (ACTION_MOVE): 0:(575.35547,132.23897)
+:Sending Touch (ACTION_MOVE): 0:(575.2193,131.50998)
+:Sending Touch (ACTION_UP): 0:(559.84503,125.65528)
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.jianshu.haruki/com.baiji.jianshu.ui.main.MainActivity } in package com.jianshu.haruki
+    // activityResuming(com.jianshu.haruki)
+:Sending Key (ACTION_DOWN): 175    // KEYCODE_CAPTIONS
+:Sending Key (ACTION_UP): 175    // KEYCODE_CAPTIONS
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+:Sending Key (ACTION_UP): 23    // KEYCODE_DPAD_CENTER
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(1024.0,200.0)
+:Sending Touch (ACTION_UP): 0:(1022.89746,199.5758)
+Sleeping for 500 milliseconds
+:Sending Touch (ACTION_DOWN): 0:(556.0,5.0)
+:Sending Touch (ACTION_UP): 0:(534.8658,4.9228716)
+Sleeping for 500 milliseconds
+    // Rejecting start of Intent { act=android.settings.BLUETOOTH_SETTINGS cmp=com.android.settings/.Settings$BluetoothSettingsActivity } in package com.android.settings
+:Switch: #Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10200000;component=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity;end
+    // Allowing start of Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] cmp=com.jianshu.haruki/com.baiji.jianshu.account.SplashScreenActivity } in package com.jianshu.haruki
+Sleeping for 500 milliseconds
+    // activityResuming(com.jianshu.haruki)
+    // activityResuming(com.tencent.qqlite)
+    // Rejecting resume of package com.tencent.qqlite
+:Sending Key (ACTION_DOWN): 19    // KEYCODE_DPAD_UP
+:Sending Key (ACTION_UP): 19    // KEYCODE_DPAD_UP
+Sleeping for 500 milliseconds
+    // Allowing start of Intent { cmp=com.jianshu.haruki/com.baiji.jianshu.ui.main.MainActivity } in package com.jianshu.haruki
+    // activityResuming(com.jianshu.haruki)
+:Sending Key (ACTION_DOWN): 82    // KEYCODE_MENU
+:Sending Key (ACTION_UP): 82    // KEYCODE_MENU
+Sleeping for 500 milliseconds
+:Sending Key (ACTION_DOWN): 23    // KEYCODE_DPAD_CENTER
+Events injected: 200
+:Sending rotation degree=0, persist=false
+:Dropped: keys=1 pointers=0 trackballs=0 flips=0 rotations=0
+## Network stats: elapsed time=36334ms (0ms mobile, 0ms wifi, 36334ms not connected)
+// Monkey finished
