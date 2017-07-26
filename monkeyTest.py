@@ -41,10 +41,7 @@ def get_error(log):
         bo.crash(worksheet2, crash)
 
 def report(app,sumTime):
-
     header = get_phome()
-
-
     worksheet1 = workbook.add_worksheet("性能监控")
     app["maxMen"] = BaseAnalysis.maxMen(BaseMonitor.men)
     app["avgMen"] = BaseAnalysis.avgMen(men=BaseMonitor.men, total=header["rom"])
@@ -74,10 +71,10 @@ def report(app,sumTime):
     app["battery"] = BaseMonitor.battery
     app["fps"] = BaseMonitor.fps
     bo.analysis(worksheet3, app)
+    bo.close()
 
 
-
- # 手机信息
+    # 手机信息
 def get_phome():
     bg = BasePhoneMsg.getPhone("log.txt").get_phone_Kernel()
     app = {}
@@ -115,20 +112,21 @@ if __name__ == '__main__':
         start_monkey(mc["cmd"], mc["log"])
         time.sleep(1)
         starttime = datetime.datetime.now()
+        pid = BaseMonitor.get_pid(mc["package_name"])
+        cpu_kel = BaseMonitor.get_cpu_kel()
         while True:
             with open(mc["monkey_log"], encoding='utf-8') as monkeylog:
-                BaseMonitor.get_cpu(mc["package_name"])
+                BaseMonitor.cpu_rate(pid, cpu_kel)
                 BaseMonitor.get_men(mc["package_name"])
                 BaseMonitor.get_fps(mc["package_name"])
                 BaseMonitor.get_battery()
-                BaseMonitor.get_flow(mc["package_name"], mc["net"])
+                BaseMonitor.get_flow(pid, mc["net"])
                 time.sleep(1) # 每1秒采集检查一次
                 if monkeylog.read().count('Monkey finished') > 0:
                     endtime = datetime.datetime.now()
                     print("测试完成咯")
                     app = {"beforeBattery": BaseMonitor.get_battery(), "net": mc["net"], "monkey_log": mc["monkey_log"]}
                     report(app, str((endtime - starttime).seconds) + "秒")
-                    bo.close()
                     # get_error(mc["monkey_log"])
                     # get_phome(mc.phone_msg_log)
                     break

@@ -24,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/monkey.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="19">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="10" />
+              <caret line="1" column="131" lean-forward="false" selection-start-line="1" selection-start-column="131" selection-end-line="1" selection-end-column="131" />
               <folding />
             </state>
           </provider>
@@ -33,7 +33,7 @@
       <file leaf-file-name="BaseMonkeyConfig.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Base/BaseMonkeyConfig.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="323">
               <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
               <folding>
                 <element signature="e#29#48#0" expanded="true" />
@@ -42,11 +42,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monkeyTest.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BaseMonitor.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Base/BaseMonitor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="189" column="36" lean-forward="true" selection-start-line="189" selection-start-column="36" selection-end-line="189" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monkeyTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/monkeyTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="130" column="30" lean-forward="false" selection-start-line="108" selection-start-column="3" selection-end-line="130" selection-end-column="30" />
+            <state relative-caret-position="114">
+              <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
               <folding>
                 <element signature="e#24#39#0" expanded="true" />
               </folding>
@@ -54,14 +66,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseMonitor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Base/BaseMonitor.py">
+      <file leaf-file-name="BasePhoneMsg.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Base/BasePhoneMsg.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2413">
-              <caret line="130" column="41" lean-forward="false" selection-start-line="130" selection-start-column="41" selection-end-line="130" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="779">
+              <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/Base/BaseReport.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="15" />
+              <caret line="194" column="77" lean-forward="false" selection-start-line="194" selection-start-column="77" selection-end-line="194" selection-end-column="77" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -88,8 +98,28 @@
       <file leaf-file-name="BaseAnalysis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Base/BaseAnalysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="152">
+              <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdbCommon.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Base/AdbCommon.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseCashEmnu.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Base/BaseCashEmnu.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -109,9 +139,16 @@
       <find>sum</find>
       <find>k</find>
       <find>----</find>
-      <find>flow</find>
-      <find>men</find>
       <find>fps</find>
+      <find>_maxFlow</find>
+      <find>93</find>
+      <find>117</find>
+      <find>result</find>
+      <find>-----flow---------</find>
+      <find>flow</find>
+      <find>cpu</find>
+      <find>maxCpu</find>
+      <find>men</find>
     </findStrings>
     <replaceStrings>
       <replace>data</replace>
@@ -166,11 +203,11 @@
         <option value="$PROJECT_DIR$/log/2017-07-11-14_33_15monkey.log" />
         <option value="$PROJECT_DIR$/Base/BasePhoneMsg.py" />
         <option value="$PROJECT_DIR$/Base/BaseMonkeyConfig.py" />
-        <option value="$PROJECT_DIR$/Base/BaseAnalysis.py" />
+        <option value="$PROJECT_DIR$/Base/BaseMonitor.py" />
         <option value="$PROJECT_DIR$/monkeyTest.py" />
         <option value="$PROJECT_DIR$/Base/BaseReport.py" />
-        <option value="$PROJECT_DIR$/Base/BaseMonitor.py" />
         <option value="$PROJECT_DIR$/monkey.ini" />
+        <option value="$PROJECT_DIR$/Base/BaseAnalysis.py" />
       </list>
     </option>
   </component>
@@ -194,7 +231,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>PyUnboundLocalVariableInspection</id>
+            <id>PyTupleAssignmentBalanceInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -216,7 +253,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -259,6 +295,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -515,9 +552,9 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.monkeyTest" />
-        <item index="1" class="java.lang.String" itemvalue="Python.BaseReport" />
-        <item index="2" class="java.lang.String" itemvalue="Python.BaseAnalysis" />
-        <item index="3" class="java.lang.String" itemvalue="Python.BaseMonitor" />
+        <item index="1" class="java.lang.String" itemvalue="Python.BaseAnalysis" />
+        <item index="2" class="java.lang.String" itemvalue="Python.BaseMonitor" />
+        <item index="3" class="java.lang.String" itemvalue="Python.BaseReport" />
         <item index="4" class="java.lang.String" itemvalue="Python.monitor" />
       </list>
     </recent_temporary>
@@ -559,13 +596,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24592593" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3990755" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24555735" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2956381" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -649,44 +687,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BLL/BphomeMsg.py" />
-    <entry file="file://$PROJECT_DIR$/Base/AdbCommon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/MMonkeyConfig.py" />
     <entry file="file://$PROJECT_DIR$/DAL/DMonkeyConfig.py" />
-    <entry file="file://$PROJECT_DIR$/Base/BaseCashEmnu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log/2017-07-11-14_33_15monkey.log" />
-    <entry file="file://$PROJECT_DIR$/Base/BasePhoneMsg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-913988757/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="321" column="4" lean-forward="false" selection-start-line="321" selection-start-column="4" selection-end-line="321" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Base/BaseMonkeyConfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding>
-            <element signature="e#29#48#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -705,10 +712,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Base/BaseAnalysis.py">
+    <entry file="file://$PROJECT_DIR$/img/log.png" />
+    <entry file="file://$PROJECT_DIR$/img/monkey.png" />
+    <entry file="file://$PROJECT_DIR$/img/monkey2.png" />
+    <entry file="file://$PROJECT_DIR$/Base/AdbCommon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="114">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Base/BaseCashEmnu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="15" lean-forward="false" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Base/BaseMonkeyConfig.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding>
+            <element signature="e#29#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/monitor.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Base/BasePhoneMsg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -716,45 +757,45 @@
     <entry file="file://$PROJECT_DIR$/Base/BaseReport.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="15" />
+          <caret line="194" column="77" lean-forward="false" selection-start-line="194" selection-start-column="77" selection-end-line="194" selection-end-column="77" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/log.png" />
-    <entry file="file://$PROJECT_DIR$/img/monitor.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/monkey.png" />
-    <entry file="file://$PROJECT_DIR$/img/monkey2.png" />
     <entry file="file://$PROJECT_DIR$/monkey.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="4" selection-end-column="10" />
+          <caret line="1" column="131" lean-forward="false" selection-start-line="1" selection-start-column="131" selection-end-line="1" selection-end-column="131" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Base/BaseMonitor.py">
+    <entry file="file://$PROJECT_DIR$/Base/BaseAnalysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2413">
-          <caret line="130" column="41" lean-forward="false" selection-start-line="130" selection-start-column="41" selection-end-line="130" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/monkeyTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="130" column="30" lean-forward="false" selection-start-line="108" selection-start-column="3" selection-end-line="130" selection-end-column="30" />
+        <state relative-caret-position="114">
+          <caret line="67" column="32" lean-forward="true" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
           <folding>
             <element signature="e#24#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Base/BaseMonitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="189" column="36" lean-forward="true" selection-start-line="189" selection-start-column="36" selection-end-line="189" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

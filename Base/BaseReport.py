@@ -192,7 +192,7 @@ class OperateReport:
 
         temp = 2
         for item in data["cpu"]:
-            _write_center(worksheet, "A" + str(temp), item, self.wd)
+            _write_center(worksheet, "A" + str(temp), float("%.1f" % item)*10, self.wd)
             temp = temp + 1
 
         temp = 2
