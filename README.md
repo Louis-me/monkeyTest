@@ -2,6 +2,7 @@
 * python3 
 * Statistical performance cpu,men,fps,battery,flow(wifi,gprs)
 * Statistics crash info.
+* muilt android
  
 
 
@@ -9,7 +10,7 @@
 
 ``` 
 
-cmd=adb shell monkey -p com.jianshu.haruki --throttle 500 --ignore-timeouts --ignore-crashes   --monitor-native-crashes -v -v -v 200 >
+cmd=monkey -p com.jianshu.haruki --throttle 500 --ignore-timeouts --ignore-crashes   --monitor-native-crashes -v -v -v 200 >
 package_name=com.jianshu.haruki
 activity = com.baiji.jianshu.account.SplashScreenActivity
 net = wifi 
@@ -19,7 +20,7 @@ net = wifi
 - net gprs or wifi
 
 
-![monkey结果](img/analysis.PNG  "monkey结果")
+![monkey结果](img/analysis.jpg  "monkey结果")
 
 ![monkey结果](img/monitor.png  "monkey结果")
 

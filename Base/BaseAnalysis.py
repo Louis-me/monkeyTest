@@ -43,20 +43,30 @@ def maxFps(fps):
 
 
 def maxFlow(flow):
+    print("---maxFlow111----------")
+    print(flow)
     _flowUp = []
     _flowDown = []
     for i in range(len(flow[0])):
         if i + 1 == len(flow[0]):
             break
         _flowUp.append(math.ceil((flow[0][i + 1] - flow[0][i]) / 1024))
-
+        print("---maxFlow2222---------")
+        print(_flowUp)
     for i in range(len(flow[1])):
         if i + 1 == len(flow[1]):
             break
         _flowDown.append(math.ceil((flow[1][i + 1] - flow[1][i]) / 1024))
-
-    maxFpsUp = str(max(_flowUp)) + "KB"  # 上行流量
-    maxFpsDown = str(max(_flowDown)) + "KB"  # 下行流量
+        print("---maxFlow3333---------")
+        print(_flowDown)
+    if _flowUp:
+        maxFpsUp = str(max(_flowUp)) + "KB"  # 上行流量
+    else:
+        maxFpsUp = "0"
+    if _flowDown:
+        maxFpsDown = str(max(_flowDown)) + "KB"  # 下行流量
+    else:
+        maxFpsDown = "0"
     return maxFpsUp, maxFpsDown
 
 def avgFlow(flow):

@@ -3,6 +3,7 @@
 * 统计性能信息cpu,men,fps,battery,flow
 * 支持wifi,gprs统计
 * 统计crash信息
+* 支持多安卓设备
  
 
 
@@ -10,7 +11,7 @@
 
 ``` 
 
-cmd=adb shell monkey -p com.jianshu.haruki --throttle 500 --ignore-timeouts --ignore-crashes   --monitor-native-crashes -v -v -v 200 >
+cmd=monkey -p com.jianshu.haruki --throttle 500 --ignore-timeouts --ignore-crashes   --monitor-native-crashes -v -v -v 200 >
 package_name=com.jianshu.haruki
 activity = com.baiji.jianshu.account.SplashScreenActivity
 net = wifi 

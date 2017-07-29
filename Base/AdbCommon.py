@@ -8,6 +8,7 @@ class AndroidDebugBridge(object):
     def call_adb(self, command):
         command_result = ''
         command_text = 'adb %s' % command
+        print(command_text)
         results = os.popen(command_text, "r")
         while 1:
             line = results.readline()
@@ -24,12 +25,7 @@ class AndroidDebugBridge(object):
     def attached_devices(self):
         result = self.call_adb("devices")
         devices = result.partition('\n')[2].replace('\n', '').split('\tdevice')
-        flag = [device for device in devices if len(device) > 2]
-        if flag:
-            return True
-        else:
-            return False
-            # return [device for device in devices if len(device) > 2]
+        return [device for device in devices if len(device) > 2]
     # 状态
     def get_state(self):
         result = self.call_adb("get-state")
@@ -60,8 +56,8 @@ class AndroidDebugBridge(object):
             return result
 
     # 打开指定app
-    def open_app(self,packagename,activity):
-        result = self.call_adb("shell am start -n %s/%s" % (packagename, activity))
+    def open_app(self,packagename,activity,devices):
+        result = self.call_adb("-s "+ devices+" shell am start -n %s/%s" % (packagename, activity))
         check = result.partition('\n')[2].replace('\n', '').split('\t ')
         if check[0].find("Error") >= 1:
             return False
@@ -78,6 +74,9 @@ class AndroidDebugBridge(object):
         # print(result[4])
         return result[4]
 
+if __name__ == '__main__':
 
-# reuslt = AndroidDebugBridge().attached_devices()
-# print(reuslt)
+    reuslt = AndroidDebugBridge().attached_devices()
+    for info in reuslt:
+
+        print(info)

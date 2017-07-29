@@ -1,14 +1,20 @@
 import math
+import re
+
 import xlsxwriter
+
+from Base import BaseAnalysis,  BaseCashEmnu as go
+from Base.BasePickle import readInfo
 
 
 class OperateReport:
     def __init__(self, wd):
         self.wd = wd
+        self._crashM = []
         # self.pie(self.wd, worksheet)
 
-    def monitor(self, worksheet, header, data):
-
+    def monitor(self, info):
+        worksheet = self.wd.add_worksheet("Analysis")
         worksheet.set_column("A:A", 15)
         worksheet.set_column("B:B", 10)
         worksheet.set_column("C:C", 10)
@@ -21,6 +27,13 @@ class OperateReport:
         worksheet.set_column("J:J", 10)
         worksheet.set_column("K:K", 10)
         worksheet.set_column("L:L", 10)
+        worksheet.set_column("L:L", 10)
+        worksheet.set_column("M:M", 10)
+        worksheet.set_column("N:N", 10)
+        worksheet.set_column("O:O", 10)
+        worksheet.set_column("P:P", 10)
+        worksheet.set_column("Q:Q", 10)
+        worksheet.set_column("R:R", 10)
 
         worksheet.set_row(1, 30)
         worksheet.set_row(2, 30)
@@ -44,100 +57,125 @@ class OperateReport:
         define_format_H2.set_align("center")
         define_format_H2.set_bg_color("blue")
         define_format_H2.set_color("#ffffff")
-
-        worksheet.merge_range('A1:L1', 'monkey性能监控_' + header["phone_name"], define_format_H1)
-        _write_center(worksheet, "A2", 'CPU', self.wd)
+        worksheet.merge_range('A1:L1', 'monkey性能监控', define_format_H1)
+        _write_center(worksheet, "A2", '设备名', self.wd)
+        _write_center(worksheet, "B2", 'CPU', self.wd)
         _write_center(worksheet, "C2", '内存', self.wd)
-        _write_center(worksheet, "E2", '分辨率', self.wd)
-        _write_center(worksheet, "G2", '网络', self.wd)
-        _write_center(worksheet, "H2", header["net"], self.wd)
-        _write_center(worksheet, "I2", "耗时", self.wd)
-
-        _write_center(worksheet, "B2", header["kel"], self.wd)
-        _write_center(worksheet, "D2", str(math.ceil(header["rom"] / 1024)) + "M", self.wd)
-        _write_center(worksheet, "F2", header["pix"], self.wd)
-        _write_center(worksheet, "J2", header["time"], self.wd)
-
-        _write_center(worksheet, "A3", 'CPU最大峰值', self.wd)
-        _write_center(worksheet, "B3", 'CPU均值', self.wd)
-        _write_center(worksheet, "C3", '内存使用峰值', self.wd)
-        _write_center(worksheet, "D3", '内存使用均值', self.wd)
-        _write_center(worksheet, "E3", 'fps峰值', self.wd)
-        _write_center(worksheet, "F3", 'fps均值', self.wd)
-        _write_center(worksheet, "G3", '电量测试之前', self.wd)
-        _write_center(worksheet, "H3", '电量测试之后', self.wd)
-        _write_center(worksheet, "I3", '上行流量峰值', self.wd)
-        _write_center(worksheet, "J3", '上行流量均值', self.wd)
-        _write_center(worksheet, "K3", '下行流量峰值', self.wd)
-        _write_center(worksheet, "L3", '下行流量均值', self.wd)
-
-        temp = 4
-        print(data)
-        _write_center(worksheet, "A" + str(temp), data["maxCpu"], self.wd)
-        _write_center(worksheet, "B" + str(temp), data["avgCpu"], self.wd)
-        _write_center(worksheet, "C" + str(temp), data["maxMen"], self.wd)
-        _write_center(worksheet, "D" + str(temp), data["avgMen"], self.wd)
-
-        _write_center(worksheet, "E" + str(temp), data["maxFps"], self.wd)
-        _write_center(worksheet, "F" + str(temp), data["avgFps"], self.wd)
-        _write_center(worksheet, "G" + str(temp), data["beforeBattery"], self.wd)
-        _write_center(worksheet, "H" + str(temp), data["afterBattery"], self.wd)
-        _write_center(worksheet, "I" + str(temp), data["maxFlowUp"], self.wd)
-        _write_center(worksheet, "J" + str(temp), data["avgFlowUp"], self.wd)
-        _write_center(worksheet, "K" + str(temp), data["maxFlowDown"], self.wd)
-        _write_center(worksheet, "L" + str(temp), data["avgFlowDown"], self.wd)
-        # temp = temp + 1
-
-    def pie(self, workbook, worksheet):
-        chart1 = workbook.add_chart({'type': 'pie'})
-        chart1.add_series({
-            'name': '自动化测试统计',
-            'categories': '=测试总况!$C$3:$C$4',
-            'values': '=测试总况!$D$3:$D$4',
-        })
-        chart1.set_title({'name': '自动化测试统计'})
-        chart1.set_style(10)
-        worksheet.insert_chart('A9', chart1, {'x_offset': 25, 'y_offset': 10})
-        # pie(self.wd, worksheet)
+        _write_center(worksheet, "D2", '分辨率', self.wd)
+        _write_center(worksheet, "E2", '网络', self.wd)
+        _write_center(worksheet, "F2", "耗时", self.wd)
+        _write_center(worksheet, "G2", "CPU峰值", self.wd)
+        _write_center(worksheet, "H2", "CPU均值", self.wd)
+        _write_center(worksheet, "I2", "内存峰值", self.wd)
+        _write_center(worksheet, "J2", "内存均值", self.wd)
+        _write_center(worksheet, "K2", "fps峰值", self.wd)
+        _write_center(worksheet, "L2", "fps均值", self.wd)
+        _write_center(worksheet, "M2", "电量测试之前", self.wd)
+        _write_center(worksheet, "N2", "电量测试之后", self.wd)
+        _write_center(worksheet, "O2", "上行流量峰值", self.wd)
+        _write_center(worksheet, "P2", "上行流量均值", self.wd)
+        _write_center(worksheet, "Q2", "下行流量峰值", self.wd)
+        _write_center(worksheet, "R2", "下行流量均值", self.wd)
 
 
-    def plot(self,workbook, worksheet, type, lenData):
+        temp = 3
+        for t in info:
+            for wrap in t:
+                for item in t[wrap]:
+                    self.getCrashMsg(t[wrap]["header"]["monkey_log"])
+                    _write_center(worksheet, "A" + str(temp), t[wrap]["header"]["phone_name"], self.wd)
+                    _write_center(worksheet, "B" + str(temp), t[wrap]["header"]["kel"], self.wd)
+                    _write_center(worksheet, "C" + str(temp), str(math.ceil(t[wrap]["header"]["rom"] / 1024)) + "M", self.wd)
+                    _write_center(worksheet, "D" + str(temp), t[wrap]["header"]["pix"], self.wd)
+                    _write_center(worksheet, "E" + str(temp), t[wrap]["header"]["net"], self.wd)
+                    _write_center(worksheet, "F" + str(temp), t[wrap]["header"]["time"], self.wd)
+
+                    cpu = readInfo(t[wrap]["cpu"])
+                    men = readInfo(t[wrap]["men"])
+                    fps = readInfo(t[wrap]["fps"])
+                    flow = readInfo(t[wrap]["flow"])
+                    print("----wrap-----")
+                    print(flow)
+                    _write_center(worksheet, "G" + str(temp), BaseAnalysis.maxCpu(cpu), self.wd)
+                    _write_center(worksheet, "H" + str(temp), BaseAnalysis.avgCpu(cpu), self.wd)
+                    _write_center(worksheet, "I" + str(temp), BaseAnalysis.maxMen(men), self.wd)
+                    _write_center(worksheet, "J" + str(temp), BaseAnalysis.avgMen(men, t[wrap]["header"]["rom"]), self.wd)
+                    _write_center(worksheet, "K" + str(temp), BaseAnalysis.maxFps(fps), self.wd)
+                    _write_center(worksheet, "L" + str(temp), BaseAnalysis.avgFps(fps), self.wd)
+                    _write_center(worksheet, "M" + str(temp), t[wrap]["header"]["beforeBattery"], self.wd)
+                    _write_center(worksheet, "N" + str(temp), t[wrap]["header"]["afterBattery"], self.wd)
+
+                    _maxFlow = BaseAnalysis.maxFlow(flow)
+                    _avgFLow = BaseAnalysis.avgFlow(flow)
+                    print("-----_maxFlow----------")
+                    print(_maxFlow)
+                    _write_center(worksheet, "O" + str(temp), _maxFlow[0], self.wd)
+                    _write_center(worksheet, "Q" + str(temp), _maxFlow[1], self.wd)
+                    _write_center(worksheet, "P" + str(temp), _avgFLow[1], self.wd)
+                    _write_center(worksheet, "R" + str(temp), _avgFLow[1], self.wd)
+
+                    break
+                temp = temp + 1
+
+    def getCrashMsg(self, log):
+        with open(log, encoding="utf-8") as monkey_log:
+            lines = monkey_log.readlines()
+            for line in lines:
+                if re.findall(go.ANR, line):
+                    print("存在anr错误:" + line)
+                    self._crashM.append(line)
+                if re.findall(go.CRASH, line):
+                    print("存在crash错误:" + line)
+                    self._crashM.append(line)
+                if re.findall(go.EXCEPTION, line):
+                    print("存在crash错误:" + line)
+                    self._crashM.append(line)
+    def crash(self):
+        if len(self._crashM):
+            worksheet = self.wd.add_worksheet("crash")
+            _write_center(worksheet, "A1", '崩溃统计日志', self.wd)
+            temp = 2
+            for item in self._crashM:
+                _write_center(worksheet, "A" + str(temp), item, self.wd)
+                temp = temp + 1
+
+    def plot(self, worksheet, types, lenData, name):
         '''
-        
-        :param workbook: 
-        :param worksheet: 
-        :param type: cpu,fps,flow,battery
+
+        :param worksheet:
+        :param types: cpu,fps,flow,battery
         :param lenData: 数据长度
-        :return: 
+        :param name: sheet名字
+        :return:
         '''
         values = ""
         row = ""
         title = ""
-        if type == "cpu":
-            values = '=详细信息!$A$1:$A$' + str(lenData + 1)
+        if types == "cpu":
+            values = "="+name+"!$A$1:$A$" + str(lenData + 1)
             row = 'A' + str(lenData)
             title = "cpu使用率"
-        elif type == "men":
-            values = '=详细信息!$B$1:$B$' + str(lenData + 1)
+        elif types == "men":
+            values = "="+name+"!$B$1:$B$" + str(lenData + 1)
             row = 'B' + str(lenData)
             title = "内存使用MB"
-        elif type == "fps":
-            values = '=详细信息!$C$1:$C$' + str(lenData + 1)
+        elif types == "fps":
+            values = "=" + name + "!$C$1:$C$" + str(lenData + 1)
             row = 'C' + str(lenData)
             title = "fps使用情况"
-        elif type == "battery":
-            values = '=详细信息!$D$1:$D$' + str(lenData + 1)
+        elif types == "battery":
+            values = "="+name+"!$D$1:$D$" + str(lenData + 1)
             row = 'D' + str(lenData)
             title = "电池剩余%"
-        elif type == "flowUp":
-            values = '=详细信息!$E$1:$E$' + str(lenData + 1)
+        elif types == "flowUp":
+            values = "="+name+"!$E$1:$E$" + str(lenData + 1)
             row = 'E' + str(lenData)
             title = "上行流量KB"
-        elif type == "flowDown":
-            values = '=详细信息!$F$1:$F$' + str(lenData + 1)
+        elif types == "flowDown":
+            values = "="+name+"!$F$1:$F$" + str(lenData + 1)
             row = 'F' + str(lenData)
             title = "下行流量KB"
-        chart1 = workbook.add_chart({'type': 'line'})
+        chart1 = self.wd.add_chart({'type': 'line'})
         chart1.add_series({
             'values': values
         })
@@ -146,87 +184,94 @@ class OperateReport:
         worksheet.insert_chart(row, chart1)
 
 
-    def crash(self, worksheet, data):
-        _write_center(worksheet, "A1", '崩溃统计日志', self.wd)
-        temp = 2
-        for item in data:
-            _write_center(worksheet, "A" + str(temp), item, self.wd)
-            temp = temp + 1
 
     def close(self):
         self.wd.close()
 
-    def analysis(self, worksheet, data):
-        print("------data-----")
-        print(data)
-        worksheet.set_column("A:A", 10)
-        worksheet.set_column("B:B", 10)
-        worksheet.set_column("C:C", 10)
-        worksheet.set_column("D:D", 10)
-        worksheet.set_column("E:E", 10)
-        worksheet.set_column("F:F", 10)
+    def analysis(self, info):
+        for t in info:
+            for wrap in t:
+                name = wrap + "detail" # sheet名字
+                worksheet = self.wd.add_worksheet(name)
+                worksheet.set_column("A:A", 10)
+                worksheet.set_column("B:B", 10)
+                worksheet.set_column("C:C", 10)
+                worksheet.set_column("D:D", 10)
+                worksheet.set_column("E:E", 10)
+                worksheet.set_column("F:F", 10)
 
-        worksheet.set_row(1, 30)
-        worksheet.set_row(2, 30)
-        worksheet.set_row(3, 30)
-        worksheet.set_row(4, 30)
-        worksheet.set_row(5, 30)
-        worksheet.set_row(6, 30)
+                worksheet.set_row(1, 30)
+                worksheet.set_row(2, 30)
+                worksheet.set_row(3, 30)
+                worksheet.set_row(4, 30)
+                worksheet.set_row(5, 30)
+                worksheet.set_row(6, 30)
+                define_format_H1 = get_format(self.wd, {'bold': True, 'font_size': 18})
+                define_format_H2 = get_format(self.wd, {'bold': True, 'font_size': 14})
+                define_format_H1.set_border(1)
 
-        define_format_H1 = get_format(self.wd, {'bold': True, 'font_size': 18})
-        define_format_H2 = get_format(self.wd, {'bold': True, 'font_size': 14})
-        define_format_H1.set_border(1)
+                define_format_H2.set_border(1)
+                define_format_H1.set_align("center")
+                define_format_H2.set_align("center")
+                define_format_H2.set_bg_color("blue")
+                define_format_H2.set_color("#ffffff")
 
-        define_format_H2.set_border(1)
-        define_format_H1.set_align("center")
-        define_format_H2.set_align("center")
-        define_format_H2.set_bg_color("blue")
-        define_format_H2.set_color("#ffffff")
+                _write_center(worksheet, "A1", 'cpu(%)', self.wd)
+                _write_center(worksheet, "B1", 'men(M)', self.wd)
+                _write_center(worksheet, "C1", 'fps', self.wd)
+                _write_center(worksheet, "D1", 'battery(%)', self.wd)
+                _write_center(worksheet, "E1", '上行流量(KB)', self.wd)
+                _write_center(worksheet, "F1", '下行流量(KB)', self.wd)
+                for item in t[wrap]:
+                    print("------data-----")
+                    temp = 2
+                    cpu = readInfo(t[wrap]["cpu"])
+                    for item in cpu:
+                        _write_center(worksheet, "A" + str(temp), float("%.1f" % item)*10, self.wd)
+                        temp = temp + 1
 
-        _write_center(worksheet, "A1", 'cpu(%)', self.wd)
-        _write_center(worksheet, "B1", 'men(M)', self.wd)
-        _write_center(worksheet, "C1", 'fps', self.wd)
-        _write_center(worksheet, "D1", 'battery(%)', self.wd)
-        _write_center(worksheet, "E1", '上行流量(KB)', self.wd)
-        _write_center(worksheet, "F1", '下行流量(KB)', self.wd)
-
-        temp = 2
-        for item in data["cpu"]:
-            _write_center(worksheet, "A" + str(temp), float("%.1f" % item)*10, self.wd)
-            temp = temp + 1
-
-        temp = 2
-        for item in data["men"]:
-            _write_center(worksheet, "B" + str(temp), math.ceil(item/1024), self.wd)
-            temp = temp + 1
+                    temp = 2
+                    men = readInfo(t[wrap]["men"])
+                    for item in men:
+                        _write_center(worksheet, "B" + str(temp), math.ceil(item/1024), self.wd)
+                        temp = temp + 1
 
 
-        temp = 2
-        for item in data["fps"]:
-            _write_center(worksheet, "C" + str(temp), item, self.wd)
-            temp = temp + 1
+                    temp = 2
+                    fps = readInfo(t[wrap]["fps"])
+                    for item in fps:
+                        _write_center(worksheet, "C" + str(temp), item, self.wd)
+                        temp = temp + 1
 
-        temp = 2
-        for item in data["battery"]:
-            _write_center(worksheet, "D" + str(temp), item, self.wd)
-            temp = temp + 1
+                    temp = 2
+                    battery = readInfo(t[wrap]["battery"])
+                    for item in battery:
+                        _write_center(worksheet, "D" + str(temp), item, self.wd)
+                        temp = temp + 1
 
-        temp = 2
-        for item in data["flow"][0]:
-            _write_center(worksheet, "E" + str(temp), math.ceil(item/1024), self.wd)
-            temp = temp + 1
+                    temp = 2
+                    flow = readInfo(t[wrap]["flow"])
+                    for item in flow[0]:
+                        if item > 0:
+                            _write_center(worksheet, "E" + str(temp), math.ceil(item/1024), self.wd)
+                        else:
+                            _write_center(worksheet, "E" + str(temp), 0, self.wd)
+                        temp = temp + 1
 
-        temp = 2
-        for item in data["flow"][1]:
-            _write_center(worksheet, "F" + str(temp), math.ceil(item/1024), self.wd)
-            temp = temp + 1
-        self.plot(self.wd, worksheet, "cpu", len(data["cpu"]))
-        self.plot(self.wd, worksheet, "men", len(data["men"]))
-        self.plot(self.wd, worksheet, "battery", len(data["battery"]))
-        self.plot(self.wd, worksheet, "fps", len(data["fps"]))
-        self.plot(self.wd, worksheet, "flowUp", len(data["flow"][0]))
-        self.plot(self.wd, worksheet, "flowDown", len(data["flow"][1]))
-
+                    temp = 2
+                    for item in flow[1]:
+                        if item > 0:
+                            _write_center(worksheet, "F" + str(temp), math.ceil(item/1024), self.wd)
+                        else:
+                            _write_center(worksheet, "F" + str(temp), 0, self.wd)
+                        temp = temp + 1
+                    self.plot(worksheet, "cpu", len(cpu), name)
+                    self.plot(worksheet, "men", len(men), name)
+                    self.plot(worksheet, "battery", len(battery), name)
+                    self.plot(worksheet, "fps", len(fps), name)
+                    self.plot(worksheet, "flowUp", len(flow[0]), name)
+                    self.plot(worksheet, "flowDown", len(flow[1]), name)
+                    break
 
 
 def get_format(wd, option={}):
@@ -252,10 +297,12 @@ def set_row(worksheet, num, height):
 if __name__ == '__main__':
 
     workbook = xlsxwriter.Workbook('report.xlsx')
-    worksheet = workbook.add_worksheet("详细信息")
-    data = {"cpu":[0.5, 0.5, 42.0, 42.0], "fps":[55, 53, 58, 60], "men":[152934, 148256, 147704, 147736, 147592],
-            "flow":[[1278463, 1283320, 1283921, 1284041, 1301729], [320679, 324074, 325569, 325725, 331187]],"battery":[55, 53, 58, 60]}
+    info = [{'emulator-5554': {'cpu': 'E:\\app\\py\\monkey1\\info\\emulator-5554_cpu.pickle', 'battery': 'E:\\app\\py\\monkey1\\info\\emulator-5554_battery.pickle', 'men': 'E:\\app\\py\\monkey1\\info\\emulator-5554_men.pickle', 'flow': 'E:\\app\\py\\monkey1\\info\\emulator-5554_flow.pickle', 'header': {'rom': 770300, 'kel': '2核', 'monkey_log': 'E:\\app\\py\\monkey1\\log\\55dd9a83-3337-46d5-bb1f-6f64b85be7cbmonkey.log', 'beforeBattery': 99, 'pix': '1440x810', 'time': '10秒', 'afterBattery': 99, 'phone_name': 'GT-I9500_samsung_4.4', 'net': 'gprs'}, 'fps': 'E:\\app\\py\\monkey1\\info\\emulator-5554_fps.pickle'}}, {'DU2TAN15AJ049163': {'cpu': 'E:\\app\\py\\monkey1\\info\\DU2TAN15AJ049163_cpu.pickle', 'battery': 'E:\\app\\py\\monkey1\\info\\DU2TAN15AJ049163_battery.pickle', 'men': 'E:\\app\\py\\monkey1\\info\\DU2TAN15AJ049163_men.pickle', 'flow': 'E:\\app\\py\\monkey1\\info\\DU2TAN15AJ049163_flow.pickle', 'header': {'rom': 3085452, 'kel': '8核', 'monkey_log': 'E:\\app\\py\\monkey1\\log\\732ac6cd-dd84-4818-80ea-d9b5339c6774monkey.log', 'beforeBattery': 94, 'pix': '1080x1920', 'time': '15秒', 'afterBattery': 94, 'phone_name': 'H60-L02_Huawei_4.4', 'net': 'gprs'}, 'fps': 'E:\\app\\py\\monkey1\\info\\DU2TAN15AJ049163_fps.pickle'}}]
+
+
     tem = OperateReport(workbook)
-    tem.analysis(worksheet, data)
+    tem.monitor(info)
+    tem.analysis(info)
+    tem.crash()
     tem.close()
     # print(len(data["cpu"]))

@@ -3,39 +3,36 @@ import os
 import re
 from wsgiref.validate import validator
 import time
-
-import math
-
-cpu = []
-men = []
-flow = [[], []]
-fps = []
-battery = []
-
-def get_cpu(pkg_name):
-    cmd = "adb  shell dumpsys cpuinfo | findstr " + pkg_name
-    print(cmd)
-    output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.readlines()
-    for info in output:
-        if info.split()[1].decode().split("/")[1][:-1] == pkg_name:  # 只有包名相等
-            print("cpu=" + info.split()[2].decode())
-            cpu.append(float(info.split()[2].decode().split("%")[0]))
-            print("----cpu-----")
-            print(cpu)
-            return cpu
+from Base.BasePickle import *
+PATH = lambda p: os.path.abspath(
+    os.path.join(os.path.dirname(__file__), p)
+)
 
 
-def get_men(pkg_name):
-    cmd = "adb shell  dumpsys  meminfo %s" % (pkg_name)
-    print(cmd)
-    men_s = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.readlines()
-    for info in men_s:
-        if len(info.split()) and info.split()[0].decode() == "TOTAL":
-            # print("men="+info.split()[1].decode())
-            men.append(int(info.split()[1].decode()))
-            print("----men----")
-            print(men)
-            return men
+
+
+def get_men(pkg_name, devices):
+    try:
+        cmd = "adb -s " +  devices +" shell  dumpsys  meminfo %s" % (pkg_name)
+        print(cmd)
+        output = subprocess.check_output(cmd).split()
+        # print(output)
+        s_men = ".".join([x.decode() for x in output]) # 转换为string
+        print(s_men)
+        men2 = int(re.findall("TOTAL.(\d+)*", s_men, re.S)[0])
+    except:
+        men2 = 0
+    writeInfo(men2, PATH("../info/" + devices + "_men.pickle"))
+    return men2
+    # men_s = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.readlines()
+    # for info in men_s:
+    #     if len(info.split()) and info.split()[0].decode() == "TOTAL":
+    #         # print("men="+info.split()[1].decode())
+    #         men.append(int(info.split()[1].decode()))
+    #         # writeInfo(int(info.split()[1].decode()), PATH("../info/" + devices + "_men.pickle"))
+    #         print("----men----")
+    #         print(men)
+    #         return men
 
 
 # 得到fps
@@ -44,8 +41,8 @@ def get_men(pkg_name):
 '''
 
 
-def get_fps(pkg_name):
-    _adb = "adb shell dumpsys gfxinfo %s" % pkg_name
+def get_fps(pkg_name, devices):
+    _adb = "adb -s " + devices +" shell dumpsys gfxinfo %s" % pkg_name
     print(_adb)
     results = os.popen(_adb).read().strip()
     frames = [x for x in results.split('\n') if validator(x)]
@@ -81,60 +78,72 @@ def get_fps(pkg_name):
                 vsync_overtime += int(render_time / 16.67)
 
     _fps = int(frame_count * 60 / (frame_count + vsync_overtime))
-    fps.append(_fps)
+    writeInfo(_fps, PATH("../info/" + devices + "_fps.pickle"))
+
     # return (frame_count, jank_count, fps)
     print("-----fps------")
-    print(fps)
-    return fps
+    print(_fps)
 
 
-def get_battery():
-    _batter = subprocess.Popen("adb shell dumpsys battery", shell=True, stdout=subprocess.PIPE,
-                               stderr=subprocess.PIPE).stdout.readlines()
-    for info in _batter:
-        if info.split()[0].decode() == "level:":
-            battery.append(int(info.split()[1].decode()))
-            print("-----battery------")
-            print(battery)
-            return int(info.split()[1].decode())
+def get_battery(devices):
+    try:
+        cmd = "adb -s " + devices + " shell dumpsys battery"
+        print(cmd)
+        output = subprocess.check_output(cmd).split()
+        # _batter = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,
+        #                            stderr=subprocess.PIPE).stdout.readlines()
+        st = ".".join([x.decode() for x in output]) # 转换为string
+        print(st)
+        battery2 = int(re.findall("level:.(\d+)*", st, re.S)[0])
+
+    except:
+        battery2 = 90
+    writeInfo(battery2, PATH("../info/" + devices + "_battery.pickle"))
+
+    return battery2
 
 
-def get_pid(pkg_name):
-    pid = subprocess.Popen("adb shell ps | findstr " + pkg_name, shell=True, stdout=subprocess.PIPE,
+
+def get_pid(pkg_name, devices):
+    cmd = "adb -s " + devices + " shell ps | findstr " + pkg_name
+    print("----get_pid-------")
+    print(cmd)
+    pid = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,
                            stderr=subprocess.PIPE).stdout.readlines()
     for item in pid:
         if item.split()[8].decode() == pkg_name:
             return item.split()[1].decode()
 
 
-def get_flow(pid, type):
+def get_flow(pid, type, devices):
     # pid = get_pid(pkg_name)
+    upflow = downflow = 0
     if pid is not None:
-        _flow = subprocess.Popen("adb shell cat /proc/" + pid + "/net/dev", shell=True, stdout=subprocess.PIPE,
+        cmd = "adb -s " + devices + " shell cat /proc/" + pid + "/net/dev"
+        print(cmd)
+        _flow = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE,
                                  stderr=subprocess.PIPE).stdout.readlines()
         for item in _flow:
             if type == "wifi" and item.split()[0].decode() == "wlan0:":  # wifi
                 # 0 上传流量，1 下载流量
-                flow[0].append(int(item.split()[1].decode()))
-                flow[1].append(int(item.split()[9].decode()))
+                upflow = int(item.split()[1].decode())
+                downflow = int(item.split()[9].decode())
                 print("------flow---------")
-                print(flow)
-                return flow
+                print(upflow)
+                break
             if type == "gprs" and item.split()[0].decode() == "rmnet0:":  # gprs
                 print("-----flow---------")
-                flow[0].append(int(item.split()[1].decode()))
-                flow[1].append(int(item.split()[9].decode()))
-                print(flow)
-                return flow
-    else:
-        flow[0].append(0)
-        flow[1].append(0)
-        return flow
+                upflow = int(item.split()[1].decode())
+                downflow = int(item.split()[9].decode())
+                print(upflow)
+                break
+
+    writeFlowInfo(upflow, downflow, PATH("../info/" + devices + "_flow.pickle"))
 
 '''
  每一个cpu快照均
 '''
-def totalCpuTime():
+def totalCpuTime(devices):
     user=nice=system=idle=iowait=irq=softirq= 0
     '''
     user:从系统启动开始累计到当前时刻，处于用户态的运行时间，不包含 nice值为负进程。
@@ -147,7 +156,8 @@ def totalCpuTime():
     stealstolen  这是时间花在其他的操作系统在虚拟环境中运行时（since 2.6.11）
     guest 这是运行时间guest 用户Linux内核的操作系统的控制下的一个虚拟CPU（since 2.6.24）
     '''
-    cmd = "adb shell cat /proc/stat"
+
+    cmd = "adb -s " + devices +" shell cat /proc/stat"
     print(cmd)
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE,
@@ -180,7 +190,7 @@ def totalCpuTime():
 '''
 每一个进程快照
 '''
-def processCpuTime(pid):
+def processCpuTime(pid, devices):
     '''
     
     pid     进程号
@@ -190,36 +200,36 @@ def processCpuTime(pid):
     cstime  所有已死在核心态运行的时间，单位为jiffies
     '''
     utime=stime=cutime=cstime = 0
-    cmd = "adb shell cat /proc/" + pid +"/stat"
-    print(cmd)
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
-                         stderr=subprocess.PIPE,
-                         stdin=subprocess.PIPE, shell=True)
-    (output, err) = p.communicate()
-    res = output.split()
-    utime = res[13].decode()
-    stime = res[14].decode()
-    cutime = res[15].decode()
-    cstime = res[16].decode()
-    print("utime="+utime)
-    print("stime="+stime)
-    print("cutime="+cutime)
-    print("cstime="+cstime)
-    result = int(utime) + int(stime) + int(cutime) + int(cstime)
-    print("processCpuTime="+str(result))
+    try:
+        cmd = "adb -s "+ devices + " shell cat /proc/" + pid +"/stat"
+        print(cmd)
+        p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE,
+                             stdin=subprocess.PIPE, shell=True)
+        (output, err) = p.communicate()
+        res = output.split()
+
+        utime = res[13].decode()
+        stime = res[14].decode()
+        cutime = res[15].decode()
+        cstime = res[16].decode()
+        print("utime="+utime)
+        print("stime="+stime)
+        print("cutime="+cutime)
+        print("cstime="+cstime)
+        result = int(utime) + int(stime) + int(cutime) + int(cstime)
+        print("processCpuTime="+str(result))
+    except :
+        result = 0
     return result
 
 # 得到几核cpu
-def get_cpu_kel():
-    # cmd = "adb -s " +devices +" shell cat /proc/cpuinfo"
-    cmd = "adb  shell cat /proc/cpuinfo"
-    get_cmd = os.popen(cmd).readlines()
-    find_str = "processor"
-    int_cpu = 0
-    for line in get_cmd:
-        if line.find(find_str) >= 0:
-            int_cpu += 1
-    return int_cpu
+def get_cpu_kel(devices):
+    cmd = "adb -s " + devices + " shell cat /proc/cpuinfo"
+    print(cmd)
+    output = subprocess.check_output(cmd).split()
+    sitem = ".".join([x.decode() for x in output])  # 转换为string
+    return len(re.findall("processor", sitem))
 
 '''
 计算某进程的cpu使用率
@@ -227,27 +237,36 @@ def get_cpu_kel():
 cpukel cpu几核
 pid 进程id
 '''
-def cpu_rate(pid, cpukel):
+def cpu_rate(pid, cpukel, devices):
     # pid = get_pid(pkg_name)
-    processCpuTime1 = processCpuTime(pid)
+    processCpuTime1 = processCpuTime(pid, devices)
     time.sleep(1)
-    processCpuTime2 = processCpuTime(pid)
+    processCpuTime2 = processCpuTime(pid, devices)
     processCpuTime3 = processCpuTime2 - processCpuTime1
 
-    totalCpuTime1 = totalCpuTime()
+    totalCpuTime1 = totalCpuTime(devices)
     time.sleep(1)
-    totalCpuTime2 = totalCpuTime()
+    totalCpuTime2 = totalCpuTime(devices)
     totalCpuTime3 = (totalCpuTime2 - totalCpuTime1)*cpukel
-    cpu.append(100 * (processCpuTime3) / (totalCpuTime3))
+    print("totalCpuTime3="+str(totalCpuTime3))
+    print("processCpuTime3="+str(processCpuTime3))
+
+    cpu = 100 * (processCpuTime3) / (totalCpuTime3)
+    writeInfo(cpu, PATH("../info/" + devices + "_cpu.pickle"))
     print("--------cpu--------")
     print(cpu)
-    return cpu
 if __name__ == '__main__':
 
     # cpu_rate("2749")
-    pid = get_pid("com.jianshu.haruki")
+    pid = get_pid("com.jianshu.haruki", "DU2TAN15AJ049163")
+    # print(pid)
+    # get_flow(pid, "wifi", "DU2TAN15AJ049163")
+    # get_battery("DU2TAN15AJ049163")
+    # get_men("com.jianshu.haruki", "DU2TAN15AJ049163")
     # print(get_cpu_kel())
-    print(cpu_rate("com.jianshu.haruki"))
+    # cpu_kel = get_cpu_kel("DU2TAN15AJ049163")
+    # print(cpu_rate(pid,cpu_kel,"DU2TAN15AJ049163"))
+    get_flow(pid, "gprs", "emulator-5554")
     # print(get_flow("com.jianshu.haruki", "gprs"))
     # print(get_flow("com.jianshu.haruki", "gprs"))
     # print(get_flow("com.jianshu.haruki", "gprs"))
