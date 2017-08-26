@@ -3,6 +3,9 @@ import pickle
 
 import subprocess
 import shutil
+import threading
+
+from multiprocessing import Process
 
 from Base.BasePickle import writeInfo, writeSum, readInfo
 from Base.BaseWriteReport import report
@@ -11,20 +14,14 @@ import datetime
 import uuid
 import time
 from multiprocessing import Pool
-import shelve
 
-import xlsxwriter
 from Base.BaseFile import OperateFile
 import os
 from Base import AdbCommon
 from Base import BaseMonkeyConfig
-import re
 
 from Base import BasePhoneMsg
-from Base import BaseReport
 from Base import BaseMonitor
-from Base import BaseAnalysis
-from Base import  BaseCashEmnu as go
 
 PATH = lambda p: os.path.abspath(
     os.path.join(os.path.dirname(__file__), p)
@@ -46,16 +43,6 @@ def get_phome(devices):
     app["kel"] = bg[2]
     return app
 
-def destroy(devices):
-    shutil.rmtree((PATH("../info/")))
-    OperateFile(PATH("../info/" + devices + "_cpu.pickle")).remove_file()
-    OperateFile(PATH("../info/" + devices + "_men.pickle")).remove_file()
-    OperateFile(PATH("../info/" + devices + "_flow.pickle")).remove_file()
-    OperateFile(PATH("../info/" + devices + "_battery.pickle")).remove_file()
-    OperateFile(PATH("../info/" + devices + "_fps.pickle")).remove_file()
-    OperateFile(PATH("../info/info.pickle")).remove_file()
-    OperateFile(PATH("../info/sumInfo.pickle")).remove_file()
-
 
 def mkdirInit(devices, app, data=None):
     # destroy(devices)
@@ -76,6 +63,7 @@ def mkdirInit(devices, app, data=None):
     writeSum(0, data, PATH("./info/sumInfo.pickle")) # 初始化记录当前真实连接的设备数
 
 def runnerPool():
+    shutil.rmtree((PATH("./info/")))  # 删除持久化目录
     os.makedirs(PATH("./info/")) # 创建持久化目录
     devices_Pool = []
     devices = ba.attached_devices()
@@ -136,7 +124,7 @@ def start(devicess):
         print(readInfo(PATH("./info/info.pickle")))
         report(readInfo(PATH("./info/info.pickle")))
         subprocess.Popen("taskkill /f /t /im adb.exe", shell=True)
-        shutil.rmtree((PATH("./info/"))) # 删除持久化目录
+        # shutil.rmtree((PATH("./info/"))) # 删除持久化目录
         print("------来吧------")
 
 
@@ -156,6 +144,14 @@ def start_monkey(cmd, log):
     cmd3 = "adb shell cat /data/anr/traces.txt>%s" % tracesname
     os.popen(cmd3)
 
-
+def killport():
+    os.system(PATH('./kill5037.bat'))
+    os.popen("adb kill-server adb")
+    os.popen("adb start-server")
 if __name__ == '__main__':
+    killport()
+    time.sleep(1)
     runnerPool()
+    # p = Process(target=runnerPool, args=())
+    # p.start()
+    # p.join()
