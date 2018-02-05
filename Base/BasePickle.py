@@ -42,7 +42,7 @@ def readInfo(path):
             # print(data)
         except EOFError:
             data = []
-            print("读取文件错误")
+            # print("读取文件错误")
     print("------read-------")
     print(path)
     print(data)
