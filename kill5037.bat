@@ -19,3 +19,5 @@ exit
 
 :ReleasePort
 TASKKILL /f /PID %1
+
+exit

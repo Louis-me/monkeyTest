@@ -125,7 +125,6 @@ def start(devicess):
         report(readInfo(PATH("./info/info.pickle")))
         subprocess.Popen("taskkill /f /t /im adb.exe", shell=True)
         # shutil.rmtree((PATH("./info/"))) # 删除持久化目录
-        print("------来吧------")
 
 
 # 开始脚本测试
@@ -152,6 +151,4 @@ if __name__ == '__main__':
     killport()
     time.sleep(1)
     runnerPool()
-    # p = Process(target=runnerPool, args=())
-    # p.start()
-    # p.join()
+ 
